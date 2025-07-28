@@ -345,52 +345,26 @@
     <p>&copy; 2025 NyampahBersama Komunitas Inovasi. Dibuat dengan semangat open-source.</p>
   </footer>
 
-  <script>
-    // Data Proyek Anda (lanjutan dari array 'projects' yang sudah ada)
-    // Sesuaikan 'link' ini agar mengarah ke file HTML Anda yang sudah di-host di GitHub Pages.
-    // Contoh: Jika file 'super_modular.html' ada di folder 'projects' di repo Anda, link-nya akan jadi './projects/super_modular.html'
-    const projects = [
-      { name: "Modular-NFT", category: "NFT", desc: "Sistem NFT modular untuk reward & identitas digital.", link: "super_modular.html" },
-      { name: "Dompet-Cerdas-Bersama", category: "Wallet", desc: "Dompet komunitas pintar berbasis BASE & Thirdweb.", link: "smartwallet.html" }, // Contoh dari smartwallet.html
-      { name: "ai-komunitas-bersama", category: "AI", desc: "Asisten AI komunitas untuk edukasi & interaksi.", link: "snackAI.html" }, // Contoh dari snackAI.html
-      { name: "NFT Blog Web3", category: "Blog", desc: "Blog Web3 rakyat. Bisa tokenisasi tulisan!", link: "nft_blog.html" },
-      { name: "Kartu Profesional Astro", category: "Landing", desc: "Kartu profesional komunitas berbasis Astro.js", link: "platformPoAV.html" }, // Contoh dari platformPoAV.html
-      { name: "Terminal AI Pintar", category: "AI", desc: "Antarmuka terminal dengan kemampuan AI.", link: "smart_terminal_ai.html" },
-      { name: "Uji Hierarki", category: "UI/UX", desc: "Eksperimen tata letak hierarki untuk UI.", link: "uji_hirarki.html" },
-      { name: "Nyamphbersama V.1", category: "Landing", desc: "Halaman landing page untuk ekosistem NyampahBersama.", link: "nyampahbersama_v1.html" },
-      { name: "Nexus Chain HTML", category: "Blockchain", desc: "Visualisasi dan informasi tentang Nexus Chain.", link: "Nexus_Chain.html" },
-      { name: "Sertifikat Karbon SOL", category: "Smart Contract", desc: "Smart contract Solana untuk sertifikat karbon.", link: "sertifikat_carbon.sol" },
-      { name: "Modul SOL", category: "Smart Contract", desc: "Modul smart contract dasar.", link: "modul.sol" },
-      { name: "Two Bcoin SOL", category: "Smart Contract", desc: "Smart contract untuk mata uang Bcoin.", link: "twoBcoin.sol" },
-      { name: "Landing Komunitas", category: "Landing", desc: "Halaman pendaratan khusus untuk komunitas.", link: "landing_page_komunitas.html" },
-      { name: "Login Bersama", category: "UI/UX", desc: "Desain halaman login dengan fitur sosial.", link: "login_bersama.html" },
-      { name: "Mint NFT", category: "NFT", desc: "Antarmuka untuk mencetak NFT.", link: "mint_nft.html" },
-      { name: "Passport HTML", category: "Web3", desc: "Implementasi paspor digital di web3.", link: "passporn.html" },
-      { name: "Penghitungan Karbon", category: "AI", desc: "Alat untuk menghitung jejak karbon dengan AI.", link: "penghitungan_carbon.html" },
-      { name: "Portal Nexus", category: "Blockchain", desc: "Gerbang utama ke ekosistem Nexus.", link: "portal_nexus.html" },
-      { name: "Viewer 2", category: "UI/UX", desc: "Antarmuka penampil dokumen atau media versi 2.", link: "viewer_2.html" },
-      { name: "Versi Lengkap", category: "Landing", desc: "Halaman utama dengan semua fitur lengkap.", link: "versi_lengkap.html" },
-      { name: "Website", category: "Landing", desc: "Desain website umum.", link: "website.html" },
-      { name: "ZK HTML", category: "Blockchain", desc: "Eksplorasi Zero-Knowledge Proofs di HTML.", link: "zk.html" },
-      { name: "Live Style", category: "UI/UX", desc: "Eksperimen gaya CSS interaktif.", link: "liveStyle.html" },
-      { name: "Smart Kontrak Nexus", category: "Smart Contract", desc: "Desain kontrak pintar untuk Nexus.", link: "smartkontraknexus.html" },
-      { name: "Snippet JSON", category: "AI", desc: "Alat untuk mengelola snippet JSON.", link: "snippet.json" },
-      { name: "Tentang Nyampah Bersama", category: "Landing", desc: "Detail tentang komunitas Nyampah Bersama.", link: "tentang_nyampahbersama.html" },
-      { name: "Upgrade HTML", category: "UI/UX", desc: "Halaman untuk simulasi proses upgrade.", link: "upgrade.html" },
-      { name: "Research Bersama", category: "Blog", desc: "Halaman untuk publikasi riset kolaboratif.", link: "Research_Bersama.html" },
-      { name: "Riset Komunitas", category: "Blog", desc: "Halaman riset mendalam oleh komunitas.", link: "Riset_Komunitas.html" },
-      { name: "Ruang Arsip", category: "Other", desc: "Halaman untuk arsip dan dokumentasi.", link: "ruangarsip.html" },
-      { name: "Scalar", category: "AI", desc: "Proyek yang berhubungan dengan skala atau performa AI.", link: "scalar.html" },
-      { name: "Sempurna HTML", category: "UI/UX", desc: "Desain halaman HTML yang sempurna dan bersih.", link: "sempurna.html" },
-      { name: "Show HTML", category: "Other", desc: "Halaman demo untuk menampilkan sesuatu.", link: "Show.html" },
-      { name: "Simulatur Mini", category: "AI", desc: "Simulator mini untuk berbagai skenario.", link: "simulatirmini.html" },
-      { name: "Smart HTML", category: "UI/UX", desc: "Halaman HTML dengan elemen interaktif pintar.", link: "smart.html" },
-      { name: "Snack HTML", category: "UI/UX", desc: "Desain antarmuka yang cepat dan responsif.", link: "snack.html" },
-      // Tambahkan lebih banyak proyek Anda di sini berdasarkan file yang Anda miliki!
-      // Pastikan untuk menyesuaikan `link` ke nama file HTML yang sesuai.
-      // Jika Anda membuat subfolder di GitHub (misalnya 'html-files/super_modular.html'),
-      // maka link-nya harus menjadi 'html-files/super_modular.html'.
-    ];
+      <script>
+    let projects = []; // Akan diisi dari projects.json
+
+    // Fungsi untuk mengambil data dari projects.json
+    async function fetchProjects() {
+      try {
+        // Menggunakan fetch API untuk mengambil projects.json
+        // Pastikan path ke projects.json benar. Jika di root, cukup 'projects.json'
+        const response = await fetch('projects.json');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        projects = await response.json(); // Mengisi array projects dengan data dari JSON
+        showProjects('Semua'); // Tampilkan semua proyek setelah data dimuat
+      } catch (error) {
+        console.error("Gagal memuat proyek:", error);
+        const container = document.getElementById("projectList");
+        container.innerHTML = '<p class="text-center" style="grid-column: 1 / -1; color: #d9534f;">Gagal memuat daftar proyek. Silakan coba lagi nanti atau hubungi administrator.</p>';
+      }
+    }
 
     function showProjects(category) {
       const container = document.getElementById("projectList");
@@ -403,25 +377,29 @@
       }
 
       filtered.forEach(p => {
+        // Periksa apakah link adalah file .sol atau .js agar bisa memberi teks tombol yang berbeda
+        const buttonText = p.link.endsWith('.sol') || p.link.endsWith('.js') ? 'Lihat Kode' : 'Lihat Proyek';
+        const targetLink = p.link.endsWith('.sol') || p.link.endsWith('.js') ? `https://github.com/komunitas-nyampah-bersama/Laboratorium-Perangkat-Lunak-Bersama/blob/main/${p.link}` : p.link;
+
+
         container.innerHTML += `
           <div class="card">
             <h3>${p.name}</h3>
             <p>${p.desc}</p>
-            <a href="${p.link}" target="_blank">Lihat Proyek</a>
+            <a href="${targetLink}" target="_blank">${buttonText}</a>
           </div>
         `;
       });
     }
 
-    // Tampilkan semua proyek saat halaman pertama kali dimuat
-    document.addEventListener('DOMContentLoaded', () => {
-      showProjects('Semua');
-    });
+    // Panggil fetchProjects saat halaman pertama kali dimuat
+    document.addEventListener('DOMContentLoaded', fetchProjects);
 
     // Dummy links for "Edukasi", "Blog", and "Komunitas" sections
     // You should create these HTML files in a 'pages' subfolder (e.g., pages/edukasi_nft.html)
     // or link them to existing relevant files you have.
   </script>
+
 
 </body>
 </html>
