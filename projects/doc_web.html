@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus - Dokumentasi Pengembang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8e44ad;
+            --primary-dark: #6c3483;
+            --secondary: #3498db;
+            --secondary-dark: #2980b9;
+            --dark: #2c3e50;
+            --darker: #1a252f;
+            --light: #ecf0f1;
+            --lighter: #f8f9fa;
+            --gold: #f1c40f;
+            --silver: #bdc3c7;
+            --dna: #1abc9c;
+            --memory: #9b59b6;
+            --crypto: #f7931a;
+            --shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a252f, #2c3e50);
+            color: var(--light);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 5px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(142, 68, 173, 0.1)"/></svg>');
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, var(--gold), var(--dna));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .logo {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: var(--dna);
+        }
+
+        .card {
+            background: rgba(26, 35, 80, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: grab;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .card:active {
+            cursor: grabbing;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            transform: scale(1.02);
+        }
+
+        .card.dragging {
+            opacity: 0.7;
+        }
+
+        .card h2 {
+            color: var(--dna);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .card h3 {
+            color: var(--gold);
+            margin: 25px 0 15px;
+        }
+
+        pre {
+            background: rgba(10, 15, 40, 0.9);
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-left: 4px solid var(--dna);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            tab-size: 4;
+        }
+
+        code {
+            background: rgba(142, 68, 173, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--light);
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .architecture {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .arch-item {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(26, 188, 156, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--dna);
+        }
+
+        .arch-icon {
+            font-size: 2rem;
+            color: var(--dna);
+            margin-bottom: 15px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            background: rgba(26, 35, 80, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--dna);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--dna);
+            margin-bottom: 15px;
+        }
+
+        .contract-code {
+            position: relative;
+        }
+
+        .contract-code::before {
+            content: "FamilySoulbound.sol";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+
+        .diagram {
+            background: rgba(10, 15, 40, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        .flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 150px;
+        }
+
+        .flow-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--dna);
+            color: var(--darker);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .flow-arrow {
+            font-size: 2rem;
+            color: var(--dna);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+            background: rgba(10, 15, 40, 0.7);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .nav-tab {
+            background: rgba(26, 35, 80, 0.5);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-tab.active {
+            background: var(--dna);
+            color: var(--darker);
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .edit-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(26, 35, 80, 0.9);
+            border-radius: 10px;
+            padding: 15px;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--dna);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .edit-btn {
+            background: var(--dna);
+            color: var(--darker);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .edit-btn:hover {
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        .editable {
+            cursor: text;
+            padding: 5px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: 1px dashed transparent;
+        }
+
+        .editable:hover {
+            border: 1px dashed var(--gold);
+        }
+
+        .editable:focus {
+            outline: none;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid var(--dna);
+        }
+
+        .editing-mode .card {
+            box-shadow: 0 0 0 2px var(--dna);
+        }
+
+        .drop-area {
+            min-height: 50px;
+            border: 2px dashed var(--dna);
+            border-radius: 10px;
+            margin: 10px 0;
+            background: rgba(26, 188, 156, 0.05);
+            transition: all 0.3s;
+        }
+
+        .drop-area.active {
+            background: rgba(26, 188, 156, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .flow {
+                flex-direction: column;
+            }
+            
+            .flow-arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .edit-controls {
+                top: 10px;
+                right: 10px;
+                padding: 10px;
+            }
+            
+            .edit-btn {
+                padding: 6px 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-infinity"></i>
+            </div>
+            <h1>Nexus AI - Dokumentasi Pengembang</h1>
+            <p>Platform penjaga memori keluarga berbasis blockchain dengan kecerdasan buatan</p>
+        </div>
+    </header>
+
+    <div class="edit-controls">
+        <button class="edit-btn" id="toggleEdit">
+            <i class="fas fa-edit"></i> Edit Mode
+        </button>
+        <button class="edit-btn" id="resetLayout">
+            <i class="fas fa-redo"></i> Reset Layout
+        </button>
+        <button class="edit-btn" id="saveLayout">
+            <i class="fas fa-save"></i> Save Changes
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="nav-tabs">
+            <div class="nav-tab active" data-tab="overview">Overview</div>
+            <div class="nav-tab" data-tab="architecture">Arsitektur</div>
+            <div class="nav-tab" data-tab="contract">Smart Contract</div>
+            <div class="nav-tab" data-tab="frontend">Frontend</div>
+            <div class="nav-tab" data-tab="ai">AI System</div>
+            <div class="nav-tab" data-tab="deployment">Deployment</div>
+        </div>
+
+        <!-- Tab Overview -->
+        <div class="tab-content active" id="overview">
+            <div class="drop-area" id="drop-overview"></div>
+            
+            <div class="card" draggable="true">
+                <h2><i class="fas fa-info-circle"></i> Tentang Nexus</h2>
+                <p class="editable" contenteditable="false">Nexus adalah platform revolusioner yang menggabungkan teknologi blockchain dan kecerdasan buatan untuk menjaga memori keluarga secara digital. Setiap keluarga memiliki Soulbound Token (SBT) unik yang menjadi identitas digital mereka di blockchain.</p>
+                
+                <h3>Fitur Utama</h3>
+                <ul>
+                    <li><strong class="editable" contenteditable="false">Digital Identity</strong>: <span class="editable" contenteditable="false">Soulbound Token sebagai identitas keluarga di blockchain</span></li>
+                    <li><strong class="editable" contenteditable="false">Memory Preservation</strong>: <span class="editable" contenteditable="false">Penyimpanan memori keluarga sebagai NFT di blockchain</span></li>
+                    <li><strong class="editable" contenteditable="false">AI Guardian</strong>: <span class="editable" contenteditable="false">Kecerdasan buatan yang memahami konteks keluarga</span></li>
+                    <li><strong class="editable" contenteditable="false">Digital Will</strong>: <span class="editable" contenteditable="false">Sistem wasiat digital untuk warisan keluarga</span></li>
+                    <li><strong class="editable" contenteditable="false">Decentralized Storage</strong>: <span class="editable" contenteditable="false">Penyimpanan data di IPFS</span></li>
+                </ul>
+                
+                <div class="flow">
+                    <div class="flow-step">
+                        <div class="flow-number">1</div>
+                        <div class="editable" contenteditable="false">Pengguna Sambungkan Wallet</div>
+                    </div>
+                    <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="flow-step">
+                        <div class="flow-number">2</div>
+                        <div class="editable" contenteditable="false">Mint Soulbound Token</div>
+                    </div>
+                    <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="flow-step">
+                        <div class="flow-number">3</div>
+                        <div class="editable" contenteditable="false">Interaksi dengan AI</div>
+                    </div>
+                    <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="flow-step">
+                        <div class="flow-number">4</div>
+                        <div class="editable" contenteditable="false">Simpan Data di Blockchain</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Arsitektur -->
+        <div class="tab-content" id="architecture">
+            <div class="drop-area" id="drop-architecture"></div>
+            
+            <div class="card" draggable="true">
+                <h2><i class="fas fa-sitemap"></i> Arsitektur Sistem</h2>
+                <p class="editable" contenteditable="false">Nexus dibangun dengan arsitektur terdesentralisasi yang terdiri dari beberapa komponen utama:</p>
+                
+                <div class="architecture">
+                    <div class="arch-item">
+                        <div class="arch-icon"><i class="fas fa-wallet"></i></div>
+                        <h3 class="editable" contenteditable="false">Wallet Integration</h3>
+                        <p class="editable" contenteditable="false">Integrasi dengan wallet Ethereum (MetaMask) untuk autentikasi pengguna dan transaksi blockchain.</p>
+                    </div>
+                    
+                    <div class="arch-item">
+                        <div class="arch-icon"><i class="fas fa-file-contract"></i></div>
+                        <h3 class="editable" contenteditable="false">Smart Contract</h3>
+                        <p class="editable" contenteditable="false">Kontrak Soulbound Token (SBT) untuk manajemen identitas keluarga dan kepemilikan NFT.</p>
+                    </div>
+                    
+                    <div class="arch-item">
+                        <div class="arch-icon"><i class="fas fa-brain"></i></div>
+                        <h3 class="editable" contenteditable="false">AI Engine</h3>
+                        <p class="editable" contenteditable="false">Kecerdasan buatan yang dipersonalisasi untuk setiap keluarga berdasarkan data mereka.</p>
+                    </div>
+                    
+                    <div class="arch-item">
+                        <div class="arch-icon"><i class="fas fa-database"></i></div>
+                        <h3 class="editable" contenteditable="false">IPFS Storage</h3>
+                        <p class="editable" contenteditable="false">Penyimpanan terdesentralisasi untuk metadata NFT dan aset keluarga.</p>
+                    </div>
+                </div>
+                
+                <h3>Diagram Arsitektur</h3>
+                <div class="diagram">
+                    <pre>
+        +-------------------+      +----------------+      +-----------------+
+        |                   |      |                |      |                 |
+        |   Frontend App    +----->+  Smart Contract+----->+     IPFS        |
+        |   (HTML/CSS/JS)   |      |   (SBT/NFT)    |      |   (Storage)     |
+        |                   |      |                |      |                 |
+        +--------+----------+      +--------+-------+      +--------+--------+
+                 |                         |                       |
+                 |                         |                       |
+                 v                         v                       v
+        +--------+----------+      +--------+-------+      +--------+--------+
+        |                   |      |                |      |                 |
+        |   Wallet Provider |      |   Blockchain   |      |   AI Processing |
+        |   (MetaMask)      |      |   (Ethereum)   |      |   (Nexus AI)    |
+        |                   |      |                |      |                 |
+        +-------------------+      +----------------+      +-----------------+
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Smart Contract -->
+        <div class="tab-content" id="contract">
+            <div class="drop-area" id="drop-contract"></div>
+            
+            <div class="card" draggable="true">
+                <h2><i class="fas fa-file-contract"></i> Smart Contract</h2>
+                <p class="editable" contenteditable="false">Smart Contract Soulbound Token (SBT) adalah inti dari sistem identitas digital keluarga:</p>
+                
+                <h3>Fitur Kontrak Utama</h3>
+                <ul>
+                    <li class="editable" contenteditable="false"><strong>Minting</strong>: Membuat token baru untuk keluarga</li>
+                    <li class="editable" contenteditable="false"><strong>Soulbound</strong>: Token tidak dapat ditransfer ke alamat lain</li>
+                    <li class="editable" contenteditable="false"><strong>Metadata</strong>: Penyimpanan URI metadata di IPFS</li>
+                    <li class="editable" contenteditable="false"><strong>Access Control</strong>: Manajemen hak akses berbasis kepemilikan token</li>
+                </ul>
+                
+                <h3>Kode Kontrak Inti</h3>
+                <div class="contract-code">
+                    <pre><code>// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+
+contract FamilySoulbound is ERC721 {
+    uint256 private _tokenIdCounter;
+    address public owner;
+    mapping(address => bool) public hasMinted;
+    
+    struct FamilyIdentity {
+        string familyName;
+        uint256 generation;
+        address[] members;
+    }
+    
+    mapping(uint256 => string) private _tokenURIs;
+
+    constructor() ERC721("FamilySoulbound", "FAM-SBT") {
+        owner = msg.sender;
+    }
+
+    function mintFamilySBT(string memory tokenURI) external payable {
+        require(msg.value == 0.01 ether, "Incorrect ETH amount");
+        require(!hasMinted[msg.sender], "Already minted");
+        
+        uint256 tokenId = _tokenIdCounter++;
+        _mint(msg.sender, tokenId);
+        _setTokenURI(tokenId, tokenURI);
+        hasMinted[msg.sender] = true;
+    }
+
+    function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal {
+        require(_exists(tokenId), "Token doesn't exist");
+        _tokenURIs[tokenId] = _tokenURI;
+    }
+
+    function tokenURI(uint256 tokenId) public view override returns (string memory) {
+        require(_exists(tokenId), "Token doesn't exist");
+        return _tokenURIs[tokenId];
+    }
+
+    // Fungsi untuk membuat token non-transferable (Soulbound)
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 tokenId
+    ) internal override {
+        require(from == address(0), "Token is soulbound and non-transferable");
+        super._beforeTokenTransfer(from, to, tokenId);
+    }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Frontend -->
+        <div class="tab-content" id="frontend">
+            <div class="drop-area" id="drop-frontend"></div>
+            
+            <div class="card" draggable="true">
+                <h2><i class="fas fa-code"></i> Implementasi Frontend</h2>
+                <p class="editable" contenteditable="false">Frontend Nexus dibangun sebagai aplikasi web statis yang dihosting di IPFS dengan struktur sebagai berikut:</p>
+                
+                <h3>Struktur File</h3>
+                <pre><code>nexus-app/
+├── index.html          # File utama aplikasi
+├── style.css           # Gaya aplikasi
+└── app.js              # Logika aplikasi utama
+    ├── wallet.js       # Integrasi wallet
+    ├── contract.js     # Interaksi dengan smart contract
+    ├── nexus-ai.js     # Kecerdasan buatan
+    └── memory.js       # Manajemen memori keluarga</code></pre>
+                
+                <h3>Integrasi Wallet</h3>
+                <p class="editable" contenteditable="false">Contoh kode untuk menghubungkan wallet:</p>
+                <pre><code>async function connectWallet() {
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            const accounts = await window.ethereum.request({ 
+                method: 'eth_requestAccounts' 
+            });
+            
+            userAddress = accounts[0];
+            updateUI();
+            
+            // Load data pengguna
+            loadUserData();
+            
+        } catch (error) {
+            console.error("User denied account access");
+        }
+    } else {
+        alert("Please install MetaMask!");
+    }
+}</code></pre>
+                
+                <h3>Interaksi dengan Smart Contract</h3>
+                <pre><code>async function mintFamilySBT() {
+    const contract = new ethers.Contract(
+        CONTRACT_ADDRESS, 
+        CONTRACT_ABI, 
+        signer
+    );
+    
+    try {
+        // Dapatkan metadata URI dari IPFS
+        const metadataURI = await uploadMetadataToIPFS();
+        
+        // Mint SBT
+        const tx = await contract.mintFamilySBT(metadataURI, {
+            value: ethers.utils.parseEther("0.01")
+        });
+        
+        await tx.wait();
+        console.log("SBT minted successfully!");
+        
+    } catch (error) {
+        console.error("Minting failed:", error);
+    }
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Tab AI System -->
+        <div class="tab-content" id="ai">
+            <div class="drop-area" id="drop-ai"></div>
+            
+            <div class="card" draggable="true">
+                <h2><i class="fas fa-brain"></i> Sistem Kecerdasan Buatan</h2>
+                <p class="editable" contenteditable="false">Nexus AI adalah asisten pribadi yang memahami konteks keluarga dan sejarah mereka:</p>
+                
+                <h3>Arsitektur AI</h3>
+                <ul>
+                    <li class="editable" contenteditable="false"><strong>Personalization Layer</strong>: Memahami identitas keluarga spesifik</li>
+                    <li class="editable" contenteditable="false"><strong>Memory Context</strong>: Mengakses memori keluarga dari blockchain</li>
+                    <li class="editable" contenteditable="false"><strong>Natural Language Processing</strong>: Memproses permintaan pengguna</li>
+                    <li class="editable" contenteditable="false"><strong>Response Generation</strong>: Membuat respons yang relevan dan personal</li>
+                </ul>
+                
+                <h3>Contoh Implementasi AI</h3>
+                <pre><code>const NexusAI = {
+    identity: null,
+    
+    getResponse: function(input) {
+        if (!this.identity) return "Please connect wallet";
+        
+        input = input.toLowerCase();
+        
+        // Deteksi perintah lokasi
+        if (input.includes("lokasi") || input.includes("dimana")) {
+            if (!this.identity.locations) return "No location data";
+            
+            let response = "📍 Lokasi Keluarga:\n";
+            for (const [member, location] of Object.entries(this.identity.locations)) {
+                response += `\n• ${member}: ${location}`;
+            }
+            return response;
+        }
+        
+        // Deteksi perintah memori
+        if (input.includes("memori") || input.includes("kenangan")) {
+            const memories = this.identity.memories;
+            if (memories.length === 0) return "No memories recorded";
+            
+            let response = `📜 Memori Keluarga ${this.identity.familyName}:\n`;
+            memories.forEach((mem, idx) => {
+                response += `\n${idx+1}. ${mem.title} (${mem.date})`;
+            });
+            return response;
+        }
+        
+        // Respons default
+        return `Sebagai penjaga memori keluarga ${this.identity.familyName}, 
+saya akan mencatat ini untuk generasi mendatang...`;
+    }
+};</code></pre>
+            </div>
+        </div>
+
+        <!-- Tab Deployment -->
+        <div class="tab-content" id="deployment">
+            <div class="drop-area" id="drop-deployment"></div>
+            
+            <div class="card" draggable="true">
+                <h2><i class="fas fa-rocket"></i> Deployment ke IPFS</h2>
+                <p class="editable" contenteditable="false">Nexus didesain untuk di-deploy sebagai aplikasi terdesentralisasi di IPFS:</p>
+                
+                <h3>Langkah Deployment</h3>
+                <ol>
+                    <li class="editable" contenteditable="false"><strong>Build Aplikasi</strong>: 
+                        <pre><code>npm install -g parcel-bundler
+parcel build index.html --public-url ./</code></pre>
+                    </li>
+                    <li class="editable" contenteditable="false"><strong>Upload ke IPFS</strong>:
+                        <pre><code># Install IPFS CLI
+ipfs init
+
+# Start IPFS daemon
+ipfs daemon &
+
+# Upload build folder
+ipfs add -r dist/</code></pre>
+                    </li>
+                    <li class="editable" contenteditable="false"><strong>Akses Aplikasi</strong>:
+                        <p class="editable" contenteditable="false">Gunakan CID yang dihasilkan untuk mengakses aplikasi:</p>
+                        <code>https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco</code>
+                    </li>
+                </ol>
+                
+                <h3>Struktur Metadata NFT</h3>
+                <p class="editable" contenteditable="false">Metadata NFT disimpan di IPFS dalam format JSON:</p>
+                <pre><code>{
+    "name": "Keluarga Wijaya Digital Legacy",
+    "description": "Soulbound Token untuk keluarga Wijaya",
+    "attributes": {
+        "familyName": "Wijaya",
+        "generation": 3,
+        "members": [
+            {"name": "Ayah", "role": "Kepala Keluarga", "status": "online"},
+            {"name": "Ibu", "role": "Ibu Rumah Tangga", "status": "online"}
+        ],
+        "memories": [
+            {"title": "Pertemuan Keluarga 2023", "date": "2023-12-12"}
+        ],
+        "wills": [
+            {"from": "Kakek", "to": "Cucu", "message": "Warisan kebijaksanaan"}
+        ]
+    }
+}</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3>Nexus - Penjaga Masa Keluarga</h3>
+            <p class="editable" contenteditable="false">© 2023 Digital Legacy Project. Semua hak cipta dilindungi.</p>
+            <p class="editable" contenteditable="false">Dokumentasi Pengembang v1.0</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab navigation
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.nav-tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all tab contents
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show selected tab content
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Syntax highlighting simulation
+        document.querySelectorAll('pre code').forEach(codeBlock => {
+            const code = codeBlock.textContent;
+            const lines = code.split('\n');
+            
+            let highlighted = '';
+            lines.forEach(line => {
+                if (line.includes('function') || line.includes('contract')) {
+                    highlighted += `<span style="color: #61dafb;">${line}</span>\n`;
+                } else if (line.includes('import') || line.includes('pragma')) {
+                    highlighted += `<span style="color: #c586c0;">${line}</span>\n`;
+                } else if (line.trim().startsWith('//')) {
+                    highlighted += `<span style="color: #6a9955;">${line}</span>\n`;
+                } else {
+                    highlighted += `${line}\n`;
+                }
+            });
+            
+            codeBlock.innerHTML = highlighted;
+        });
+        
+        // Edit Mode Toggle
+        const toggleEditBtn = document.getElementById('toggleEdit');
+        const resetLayoutBtn = document.getElementById('resetLayout');
+        const saveLayoutBtn = document.getElementById('saveLayout');
+        const editables = document.querySelectorAll('.editable');
+        const cards = document.querySelectorAll('.card');
+        const dropAreas = document.querySelectorAll('.drop-area');
+        let isEditing = false;
+        let originalLayout = {};
+        
+        // Save original positions
+        cards.forEach((card, index) => {
+            originalLayout[index] = card.parentNode.id;
+        });
+        
+        // Toggle edit mode
+        toggleEditBtn.addEventListener('click', () => {
+            isEditing = !isEditing;
+            document.body.classList.toggle('editing-mode', isEditing);
+            
+            // Toggle contenteditable
+            editables.forEach(editable => {
+                editable.setAttribute('contenteditable', isEditing);
+            });
+            
+            // Update button text
+            toggleEditBtn.innerHTML = isEditing ? 
+                '<i class="fas fa-times"></i> Exit Edit' : 
+                '<i class="fas fa-edit"></i> Edit Mode';
+            
+            // Show/hide drop areas
+            dropAreas.forEach(area => {
+                area.style.display = isEditing ? 'block' : 'none';
+            });
+        });
+        
+        // Reset layout
+        resetLayoutBtn.addEventListener('click', () => {
+            if (!confirm('Apakah Anda yakin ingin mengembalikan tata letak ke semula?')) return;
+            
+            // Reset card positions
+            cards.forEach((card, index) => {
+                const originalParent = document.getElementById(originalLayout[index]);
+                originalParent.appendChild(card);
+            });
+            
+            // Reset content
+            editables.forEach(editable => {
+                const originalText = editable.dataset.original;
+                if (originalText) {
+                    editable.textContent = originalText;
+                }
+            });
+        });
+        
+        // Save layout
+        saveLayoutBtn.addEventListener('click', () => {
+            alert('Perubahan Anda telah disimpan (simulasi). Di implementasi nyata, perubahan akan disimpan di localStorage atau database.');
+            
+            // Save original text content
+            editables.forEach(editable => {
+                editable.dataset.original = editable.textContent;
+            });
+        });
+        
+        // Drag and Drop functionality
+        let dragItem = null;
+        
+        cards.forEach(card => {
+            card.addEventListener('dragstart', function() {
+                dragItem = this;
+                setTimeout(() => this.classList.add('dragging'), 0);
+            });
+            
+            card.addEventListener('dragend', function() {
+                this.classList.remove('dragging');
+                dragItem = null;
+            });
+        });
+        
+        dropAreas.forEach(area => {
+            area.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.classList.add('active');
+            });
+            
+            area.addEventListener('dragleave', function() {
+                this.classList.remove('active');
+            });
+            
+            area.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.classList.remove('active');
+                if (dragItem) {
+                    this.parentNode.insertBefore(dragItem, this.nextSibling);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

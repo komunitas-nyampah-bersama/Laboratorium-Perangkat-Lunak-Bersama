@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResearchHub - Lingkungan Tim Riset Terintegrasi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f4c75;
+            --secondary: #3282b8;
+            --accent: #1bcc9c;
+            --dark: #1b262c;
+            --light: #f8f9fa;
+            --orcid: #a6ce39;
+            --zenodo: #0f5c8c;
+            --github: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f7ff 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            padding: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo h1 {
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(27, 204, 156, 0.1);
+            color: var(--accent);
+        }
+        
+        .nav-links a.active {
+            background: var(--accent);
+            color: white;
+        }
+        
+        /* Dashboard */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (min-width: 992px) {
+            .dashboard {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card h2 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .card.orcid h2 {
+            color: var(--orcid);
+        }
+        
+        .card.zenodo h2 {
+            color: var(--zenodo);
+        }
+        
+        .card.github h2 {
+            color: var(--github);
+        }
+        
+        /* API Form */
+        .api-form {
+            margin-top: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(27, 204, 156, 0.2);
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: #16a085;
+            transform: translateY(-2px);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn.orcid {
+            background: var(--orcid);
+        }
+        
+        .btn.zenodo {
+            background: var(--zenodo);
+        }
+        
+        .btn.github {
+            background: var(--github);
+        }
+        
+        /* Integration Status */
+        .integration-status {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f9f9f9;
+        }
+        
+        .status-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        
+        .status-icon.active {
+            background: #4caf50;
+            color: white;
+        }
+        
+        .status-icon.inactive {
+            background: #f44336;
+            color: white;
+        }
+        
+        /* Research Projects */
+        .projects-section {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .project-card {
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .project-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .project-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .project-meta i {
+            margin-right: 5px;
+        }
+        
+        .project-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0 20px;
+            color: #666;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+        
+        /* Blockchain Animation */
+        .blockchain-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .block {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(27, 204, 156, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        .block:nth-child(1) {
+            top: 10%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+        
+        .block:nth-child(2) {
+            top: 50%;
+            left: 80%;
+            animation-delay: -2s;
+        }
+        
+        .block:nth-child(3) {
+            top: 80%;
+            left: 40%;
+            animation-delay: -5s;
+        }
+        
+        .block:nth-child(4) {
+            top: 30%;
+            left: 90%;
+            animation-delay: -8s;
+        }
+        
+        .block:nth-child(5) {
+            top: 65%;
+            left: 10%;
+            animation-delay: -11s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Blockchain Animation -->
+    <div class="blockchain-animation">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="header-container">
+                <div class="logo">
+                    <i class="fas fa-flask"></i>
+                    <h1>ResearchHub</h1>
+                </div>
+                <div class="nav-links">
+                    <a href="#" class="active"><i class="fas fa-home"></i> Beranda</a>
+                    <a href="#"><i class="fas fa-project-diagram"></i> Proyek</a>
+                    <a href="#"><i class="fas fa-users"></i> Tim</a>
+                    <a href="#"><i class="fas fa-book"></i> Publikasi</a>
+                    <a href="#"><i class="fas fa-cog"></i> Pengaturan</a>
+                </div>
+            </div>
+        </header>
+        
+        <div class="dashboard">
+            <!-- ORCID Card -->
+            <div class="card orcid">
+                <h2><i class="fab fa-orcid"></i> Integrasi ORCID</h2>
+                <p>Kelola kredensial API ORCID Anda untuk mengintegrasikan profil peneliti dan publikasi ke dalam platform.</p>
+                
+                <div class="api-form">
+                    <div class="form-group">
+                        <label for="orcid-app-name">Nama Aplikasi</label>
+                        <input type="text" id="orcid-app-name" placeholder="Masukkan nama aplikasi yang akan ditampilkan di ORCID">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="orcid-app-url">URL Aplikasi</label>
+                        <input type="url" id="orcid-app-url" placeholder="https://example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="orcid-description">Deskripsi Aplikasi</label>
+                        <textarea id="orcid-description" placeholder="Deskripsi yang akan ditampilkan kepada pengguna di laman otorisasi OAuth (maks. 1000 karakter)"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="orcid-redirect-uris">URI Pengalihan</label>
+                        <input type="text" id="orcid-redirect-uris" placeholder="http://localhost:8080/callback">
+                        <small>Tambahkan URI untuk menangani callback setelah otorisasi</small>
+                    </div>
+                    
+                    <button class="btn orcid"><i class="fas fa-save"></i> Simpan Kredensial ORCID</button>
+                </div>
+                
+                <div class="integration-status">
+                    <h3>Status Integrasi</h3>
+                    <div class="status-item">
+                        <div class="status-icon active"><i class="fas fa-check"></i></div>
+                        <div>
+                            <strong>Autentikasi</strong>
+                            <p>API Key terdaftar dan valid</p>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-icon inactive"><i class="fas fa-times"></i></div>
+                        <div>
+                            <strong>Otorisasi Pengguna</strong>
+                            <p>Belum terhubung ke profil ORCID</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Zenodo & GitHub Card -->
+            <div class="card">
+                <div class="zenodo-section" style="margin-bottom: 30px;">
+                    <h2><i class="fas fa-archive"></i> Integrasi Zenodo</h2>
+                    <p>Gunakan token akses Zenodo untuk mengelola dataset dan publikasi penelitian.</p>
+                    
+                    <div class="api-form">
+                        <div class="form-group">
+                            <label for="zenodo-token">Token Akses Zenodo</label>
+                            <input type="password" id="zenodo-token" placeholder="Masukkan token akses Zenodo">
+                        </div>
+                        
+                        <button class="btn zenodo"><i class="fas fa-plug"></i> Hubungkan Zenodo</button>
+                    </div>
+                </div>
+                
+                <div class="github-section">
+                    <h2><i class="fab fa-github"></i> Integrasi GitHub</h2>
+                    <p>Hubungkan akun GitHub untuk sinkronisasi repositori kode penelitian.</p>
+                    
+                    <div class="api-form">
+                        <div class="form-group">
+                            <label for="github-token">Token API GitHub</label>
+                            <input type="password" id="github-token" placeholder="Masukkan token API GitHub">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="github-org">Organisasi GitHub</label>
+                            <input type="text" id="github-org" placeholder="Nama organisasi/tim">
+                        </div>
+                        
+                        <button class="btn github"><i class="fas fa-code-branch"></i> Hubungkan GitHub</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Research Projects -->
+        <div class="projects-section">
+            <h2><i class="fas fa-project-diagram"></i> Proyek Penelitian Tim</h2>
+            <p>Kelola proyek penelitian Anda yang terintegrasi dengan ORCID, Zenodo, dan GitHub</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Analisis Polusi Udara Perkotaan</h3>
+                    <div class="project-meta">
+                        <span><i class="fas fa-user"></i> 5 Peneliti</span>
+                        <span><i class="fas fa-calendar"></i> 2023-2025</span>
+                    </div>
+                    <p>Studi komprehensif tentang dampak polusi udara di perkotaan terhadap kesehatan masyarakat.</p>
+                    <div class="project-actions">
+                        <button class="btn"><i class="fab fa-orcid"></i> Publikasi</button>
+                        <button class="btn zenodo"><i class="fas fa-archive"></i> Dataset</button>
+                        <button class="btn github"><i class="fab fa-github"></i> Kode</button>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Pengembangan Material Nano</h3>
+                    <div class="project-meta">
+                        <span><i class="fas fa-user"></i> 8 Peneliti</span>
+                        <span><i class="fas fa-calendar"></i> 2024-2026</span>
+                    </div>
+                    <p>Penelitian material nano untuk aplikasi energi terbarukan dan penyimpanan energi.</p>
+                    <div class="project-actions">
+                        <button class="btn"><i class="fab fa-orcid"></i> Publikasi</button>
+                        <button class="btn zenodo"><i class="fas fa-archive"></i> Dataset</button>
+                        <button class="btn github"><i class="fab fa-github"></i> Kode</button>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Model Prediksi Iklim</h3>
+                    <div class="project-meta">
+                        <span><i class="fas fa-user"></i> 6 Peneliti</span>
+                        <span><i class="fas fa-calendar"></i> 2022-2024</span>
+                    </div>
+                    <p>Pengembangan model prediksi perubahan iklim berbasis AI dengan data satelit.</p>
+                    <div class="project-actions">
+                        <button class="btn"><i class="fab fa-orcid"></i> Publikasi</button>
+                        <button class="btn zenodo"><i class="fas fa-archive"></i> Dataset</button>
+                        <button class="btn github"><i class="fab fa-github"></i> Kode</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" style="padding: 12px 30px;">
+                    <i class="fas fa-plus"></i> Tambah Proyek Baru
+                </button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>ResearchHub - Lingkungan Tim Riset Terintegrasi &copy; 2025</p>
+            <p>Dibangun dengan ❤️ untuk kemajuan penelitian kolaboratif</p>
+            <p style="margin-top: 15px; font-size: 0.85rem;">
+                <i class="fab fa-orcid" style="color: var(--orcid);"></i>
+                <i class="fas fa-archive" style="color: var(--zenodo); margin: 0 15px;"></i>
+                <i class="fab fa-github" style="color: var(--github);"></i>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Simulasi koneksi API
+        document.querySelector('.btn.orcid').addEventListener('click', function() {
+            const appName = document.getElementById('orcid-app-name').value;
+            const appUrl = document.getElementById('orcid-app-url').value;
+            
+            if(appName && appUrl) {
+                alert(`Kredensial ORCID berhasil disimpan!\nNama Aplikasi: ${appName}\nURL: ${appUrl}`);
+                
+                // Update status
+                const statusItems = document.querySelectorAll('.status-item');
+                statusItems[1].innerHTML = `
+                    <div class="status-icon active"><i class="fas fa-check"></i></div>
+                    <div>
+                        <strong>Otorisasi Pengguna</strong>
+                        <p>Terhubung ke profil ORCID</p>
+                    </div>
+                `;
+            } else {
+                alert('Silakan lengkapi nama aplikasi dan URL terlebih dahulu');
+            }
+        });
+        
+        document.querySelector('.btn.zenodo').addEventListener('click', function() {
+            const token = document.getElementById('zenodo-token').value;
+            if(token) {
+                alert('Berhasil terhubung ke Zenodo! Akses dataset penelitian telah diaktifkan.');
+            } else {
+                alert('Silakan masukkan token akses Zenodo');
+            }
+        });
+        
+        document.querySelector('.btn.github').addEventListener('click', function() {
+            const token = document.getElementById('github-token').value;
+            const org = document.getElementById('github-org').value;
+            if(token && org) {
+                alert(`Berhasil terhubung ke GitHub organisasi ${org}!`);
+            } else {
+                alert('Silakan lengkapi token API dan nama organisasi');
+            }
+        });
+        
+        // Blockchain animation
+        const blockchainAnimation = document.querySelector('.blockchain-animation');
+        for (let i = 0; i < 15; i++) {
+            const block = document.createElement('div');
+            block.className = 'block';
+            
+            // Random position
+            block.style.top = `${Math.random() * 100}%`;
+            block.style.left = `${Math.random() * 100}%`;
+            block.style.animationDelay = `${Math.random() * 15}s`;
+            
+            blockchainAnimation.appendChild(block);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyampah Bersama: Revolusi Daur Ulang Berbasis Komunitas dan Teknologi</title>
+    <meta name="description" content="Bergabunglah dengan Nyampah Bersama 2BCycle, gerakan rakyat didukung European Union untuk mengolah limbah, menciptakan ekonomi sirkular, dan mengubah sampah jadi nilai dengan teknologi digital.">
+    <meta name="keywords" content="Nyampah Bersama, 2BCycle, daur ulang, limbah, ekonomi sirkular, teknologi sampah, Bank Sampah Digital, pengolahan sampah, komunitas lingkungan, Palembang, European Union">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4CAF50; /* Hijau utama */
+            --secondary-color: #66BB6A; /* Hijau lebih terang */
+            --accent-color: #FFC107; /* Kuning aksen */
+            --text-color: #333;
+            --light-text-color: #666;
+            --bg-light: #f9f9f9;
+            --bg-dark: #2c3e50;
+            --white: #fff;
+            --border-color: #ddd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        header .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        header .tagline {
+            font-size: 1em;
+            font-weight: 300;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1600x600/4CAF50/FFFFFF?text=Ilustrasi+Daur+Ulang') no-repeat center center/cover; /* Placeholder image, replace with real image */
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background-color: #e0b000;
+        }
+
+        .eu-support {
+            font-size: 0.9em;
+            margin-top: 20px;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        /* --- About Section --- */
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section:nth-child(even) {
+            background-color: var(--bg-light);
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-us p {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .vision-mission {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .vm-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 30px;
+            width: 45%;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .vm-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .vm-card h3 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .vm-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .vm-card ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .vm-card ul li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* --- Core Values --- */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-card h3 {
+            color: var(--primary-color);
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            font-size: 0.95em;
+            color: var(--light-text-color);
+        }
+
+        .value-card ul {
+            list-style: none;
+            margin-top: 15px;
+            text-align: left;
+            padding-left: 20px;
+            color: var(--light-text-color);
+        }
+
+        .value-card ul li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        /* --- Programs Section --- */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .program-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 30px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .program-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .program-card ul li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+            color: var(--light-text-color);
+        }
+
+        .program-card ul li::before {
+            content: '✔️'; /* Checkmark for list items */
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* --- Gamification Section --- */
+        .gamification {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+        }
+        .gamification h2::after {
+            background-color: var(--accent-color);
+        }
+        .gamification p {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        .gamification-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        .game-feature-item {
+            background-color: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 10px;
+            width: 280px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .game-feature-item:hover {
+            background-color: rgba(255,255,255,0.25);
+        }
+        .game-feature-item i {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+        .game-feature-item h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        .game-feature-item p {
+            font-size: 0.9em;
+            margin: 0; /* Override previous p styling */
+        }
+
+        /* Font Awesome for icons */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+
+        /* --- Testimonials --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 30px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .testimonial-card p {
+            font-size: 1.05em;
+            margin-bottom: 15px;
+            color: var(--light-text-color);
+        }
+
+        .testimonial-card .author {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-style: normal;
+        }
+
+        /* --- Community Stats --- */
+        .community-stats {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+
+        .community-stats .highlight {
+            font-size: 1.3em;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* --- CTA Join Us --- */
+        .cta-join {
+            background-color: var(--bg-light);
+        }
+
+        .cta-join p {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .cta-button-group {
+            margin-top: 40px;
+        }
+
+        .cta-button-group .btn {
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+
+        .challenge-box {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin-top: 50px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .challenge-box h3 {
+            margin-bottom: 10px;
+            font-size: 1.6em;
+            color: var(--text-color);
+        }
+
+        /* --- Contact Section --- */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .contact-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 25px;
+            width: 300px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item i {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+
+        .contact-item div {
+            flex-grow: 1;
+        }
+
+        .contact-item h4 {
+            margin-bottom: 5px;
+            color: var(--primary-color);
+            font-size: 1.1em;
+        }
+
+        .contact-item p, .contact-item a {
+            font-size: 0.95em;
+            color: var(--light-text-color);
+            text-decoration: none;
+        }
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--bg-dark);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+            .section h2 {
+                font-size: 2em;
+            }
+            .vm-card {
+                width: 100%;
+            }
+            .values-grid, .programs-grid, .testimonials-grid, .gamification-features, .contact-info {
+                grid-template-columns: 1fr;
+            }
+            .game-feature-item, .contact-item {
+                width: 100%;
+            }
+            .cta-button-group .btn {
+                margin: 10px 0;
+                display: block;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 60px 20px;
+            }
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .section h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">Nyampah Bersama 2BCycle</div>
+            <div class="tagline">Kutemani Nyampahmu Sampai Tua</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Revolusi Daur Ulang Berbasis Komunitas dan Teknologi</h1>
+                <p>Ubah sampah jadi nilai, wujudkan ekonomi sirkular. Bergabunglah dengan gerakan masyarakat sipil yang didukung oleh teknologi dan aksi nyata.</p>
+                <a href="#join-us" class="btn">Gabung Sekarang!</a>
+                <div class="eu-support">Didukung oleh European Union</div>
+            </div>
+        </section>
+
+        ---
+
+        <section class="section about-us">
+            <div class="container">
+                <h2>Tentang Kami</h2>
+                <p><strong>Nyampah Bersama 2BCycle</strong> adalah gerakan rakyat yang berdiri sejak tahun 2023, menyatukan sampah, nilai, dan teknologi. Semua orang bisa bergabung, bahkan tanpa alat, tanpa modal, tanpa status. Karena 2BCycle bukan milik orang kaya, tapi milik manusia yang masih percaya bahwa nilai itu bisa diciptakan dari hati dan aksi.</p>
+
+                <div class="vision-mission">
+                    <div class="vm-card">
+                        <h3>Visi</h3>
+                        <ul>
+                            <li>Membangun pusat riset berbasis rakyat, teknologi desentralisasi, dan aksi lingkungan yang menciptakan sistem ekonomi sirkular berkelanjutan.</li>
+                        </ul>
+                    </div>
+                    <div class="vm-card">
+                        <h3>Misi</h3>
+                        <ul>
+                            <li>Mengintegrasikan Proof of Action Value (PoAV), 2BCycle, dan ekonomi sirkular</li>
+                            <li>Memberdayakan masyarakat melalui edukasi lingkungan dan digitalisasi pengelolaan sampah</li>
+                            <li>Mengembangkan teknologi insentif rakyat (NyampahCoin, NFT)</li>
+                            <li>Membangun kemitraan strategis dalam riset pengelolaan limbah berkelanjutan</li>
+                            <li>Mewujudkan sistem sosial berbasis aksi nyata dan teknologi Web3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section class="section core-values">
+            <div class="container">
+                <h2>Nilai Inti 2BCycle</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <h3>BlockCycle</h3>
+                        <p>Prinsip penyimpanan nilai proses yang memastikan setiap upaya Anda tercatat.</p>
+                        <ul>
+                            <li>Atensi</li>
+                            <li>Perilaku</li>
+                            <li>Tindakan kecil</li>
+                            <li>Pola pikir</li>
+                            <li>Niat</li>
+                        </ul>
+                    </div>
+                    <div class="value-card">
+                        <h3>BurnCycle</h3>
+                        <p>Transformasi hasil dan nilai yang menciptakan perubahan nyata dalam kehidupan masyarakat.</p>
+                        <ul>
+                            <li>Pengolahan sampah jadi produk</li>
+                            <li>Penciptaan nilai ekonomi</li>
+                            <li>Dampak sosial positif</li>
+                            <li>Pemberdayaan komunitas</li>
+                            <li>Keberlanjutan lingkungan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section class="section programs">
+            <div class="container">
+                <h2>Program Utama Kami</h2>
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <h3>Tokenisasi Aksi Lingkungan</h3>
+                        <p>Sistem insentif digital yang mengubah setiap aksi positif Anda menjadi aset bermakna.</p>
+                        <ul>
+                            <li>Dapatkan Poin Reward Harian (Setor, Edukasi, Pilah, Referral)</li>
+                            <li>Saldo NyampahCoin & Marketplace Reward</li>
+                            <li>Level Nasabah: Pemula ➔ Setia ➔ Legenda</li>
+                        </ul>
+                    </div>
+                    <div class="program-card">
+                        <h3>Edukasi Pengelolaan Sampah</h3>
+                        <p>Bekal ilmu komprehensif untuk pengelolaan sampah yang efektif.</p>
+                        <ul>
+                            <li>Pilah Sampah dari Rumah (Organik, Anorganik, B3, Residu)</li>
+                            <li>Workshop Daur Ulang: Pelatihan mengubah sampah jadi produk bernilai</li>
+                            <li>Kampanye Bebas Plastik: Gerakan mengurangi plastik sekali pakai</li>
+                            <li>Komposting Bersama: Olah sampah organik jadi kompos urban</li>
+                        </ul>
+                    </div>
+                    <div class="program-card">
+                        <h3>Marketplace Produk Daur Ulang</h3>
+                        <p>Mengubah sampah menjadi peluang bisnis berkelanjutan.</p>
+                        <ul>
+                            <li>Penjualan Sampah Terpilah</li>
+                            <li>Produk Kreatif Home Made (tas, furnitur, kerajinan)</li>
+                            <li>Kompos Organik dan Urban Farming Kit</li>
+                            <li>Program NFT Produk Daur Ulang Eksklusif</li>
+                        </ul>
+                    </div>
+                    <div class="program-card">
+                        <h3>Bank Sampah Digital</h3>
+                        <p>Digitalisasi bank sampah dengan sistem insentif dan reward terintegrasi.</p>
+                        <ul>
+                            <li>Wallet Sampah Digital untuk Rakyat</li>
+                            <li>Sistem Setor Sampah ➔ Dapatkan Saldo Digital</li>
+                            <li>Hubungkan Bank Sampah Konvensional ➔ Bank Sampah Digital</li>
+                            <li>Hak Voting Digital Nasabah</li>
+                        </ul>
+                    </div>
+                    <div class="program-card">
+                        <h3>Energi dari Sampah & Program Maggot</h3>
+                        <p>Menciptakan energi baru dan nutrisi dari sisa hidup manusia.</p>
+                        <ul>
+                            <li>Komposter Rumah & Komunitas</li>
+                            <li>Unit Maggot Rakyat ➔ Budidaya ➔ Marketplace Maggot</li>
+                            <li>Program Minyak Jelantah ➔ Biodiesel Rakyat</li>
+                            <li>Biodigester Mini ➔ Produksi Biogas Lokal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section class="section gamification">
+            <div class="container">
+                <h2>🎮 Gamifikasi Untuk Perubahan Nyata</h2>
+                <p>Tidak hanya berkontribusi pada lingkungan, Anda juga akan merasakan pengalaman seru seperti dalam game!</p>
+                <div class="gamification-features">
+                    <div class="game-feature-item">
+                        <i class="fas fa-level-up-alt"></i>
+                        <h4>Naik Level</h4>
+                        <p>Dapatkan XP dan naik level setiap minggu berdasarkan aktivitas Anda.</p>
+                    </div>
+                    <div class="game-feature-item">
+                        <i class="fas fa-medal"></i>
+                        <h4>Koleksi Badge</h4>
+                        <p>Dapatkan badge khusus untuk setiap prestasi dan pencapaian tertentu.</p>
+                    </div>
+                    <div class="game-feature-item">
+                        <i class="fas fa-trophy"></i>
+                        <h4>Kompetisi Seru</h4>
+                        <p>Bersaing sehat antar komunitas dengan leaderboard real-time.</p>
+                    </div>
+                    <div class="game-feature-item">
+                        <i class="fas fa-gift"></i>
+                        <h4>Event Berhadiah</h4>
+                        <p>Ikuti event musiman dengan hadiah menarik dan NFT eksklusif.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section class="section testimonials">
+            <div class="container">
+                <h2>Testimoni Anggota Komunitas</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"Awalnya saya hanya iseng mengumpulkan sampah plastik di sekitar rumah, tapi setelah bergabung dengan komunitas ini dan melihat XP saya bertambah, jadi ketagihan! Sekarang keluarga saya ikut terlibat."</p>
+                        <div class="author">- Ani, Anggota Sejak Juli 2024</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Token yang saya dapatkan dari aktivitas mengumpulkan sampah sudah bisa ditukar dengan voucher belanja. Sangat memotivasi untuk terus berkontribusi!"</p>
+                        <div class="author">- Budi, Anggota Sejak Juni 2024</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section class="community-stats">
+            <div class="container">
+                <p>Lebih dari <span class="highlight">1.000 Anggota Aktif</span> telah mengumpulkan <span class="highlight">5 Ton Sampah</span> dalam 1 bulan terakhir!</p>
+            </div>
+        </section>
+
+        ---
+
+        <section class="section cta-join" id="join-us">
+            <div class="container">
+                <h2>🚀 Bergabung Dengan Kami Sekarang!</h2>
+                <p>Mari menjadi bagian dari revolusi digital yang memberikan nilai pada setiap aksi positif Anda. Nyampah Bersama 2BCycle adalah komunitas untuk semua orang yang percaya pada perubahan nyata.</p>
+                <div class="cta-button-group">
+                    <a href="https://app.glideapps.com/" target="_blank" class="btn">Akses Portal Glide Kami</a>
+                    <a href="https://wa.me/6283177828139" target="_blank" class="btn">Hubungi Via WhatsApp</a>
+                </div>
+                <div class="challenge-box">
+                    <h3>🎯 Tantangan Mingguan: Zero Waste Weekend!</h3>
+                    <p>Bergabunglah dengan tantangan "Zero Waste Weekend" dan dapatkan NFT eksklusif sebagai penghargaan! Cek detailnya di portal kami.</p>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section class="section contact">
+            <div class="container">
+                <h2>Kontak Kami</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <h4>Website</h4>
+                            <p><a href="https://nyampahbersama.org" target="_blank">nyampahbersama.org</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@nyampahbersama.org">info@nyampahbersama.org</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p><a href="tel:+6283177828139">+62 831-7782-8139</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>Jl. Talang Keramat, 30151 Palembang, Sumatera Selatan</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>Grup WhatsApp</h4>
+                            <p><a href="https://wa.me/6283177828139" target="_blank">Hubungi kami untuk bergabung</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Nyampah Bersama 2BCycle. Semua konten dilindungi di bawah lisensi <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC-BY-NC-SA</a> dan didokumentasikan di blockchain melalui IPFS.</p>
+            <p>Dibuat dengan ❤️ di Palembang.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple animation on scroll (optional, can be expanded with Intersection Observer)
+        const sections = document.querySelectorAll('.section');
+
+        const fadeIn = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const sectionObserver = new IntersectionObserver(fadeIn, {
+            root: null,
+            threshold: 0.1, // Trigger when 10% of the section is visible
+        });
+
+        sections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            sectionObserver.observe(section);
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desakarbon - Revolusi Energi Desa Berbasis Blockchain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --hijau-energi: #0f9d58;
+            --jingga-petir: #ff7043;
+            --biru-teknologi: #1a237e;
+            --abu-revolusi: #2c3e50;
+            --putih: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* HEADER HERO */
+        .hero {
+            background: linear-gradient(rgba(15, 157, 88, 0.9), rgba(26, 35, 126, 0.8)), 
+                        url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            color: var(--putih);
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero-tagline {
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button {
+            background: var(--jingga-petir);
+            color: white;
+            border: none;
+            padding: 18px 36px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 20px rgba(255, 112, 67, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 112, 67, 0.6);
+            background: #ff5722;
+        }
+        
+        /* NAVIGASI REVOLUSI */
+        .nav-revolusi {
+            background: rgba(44, 62, 80, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            background: var(--hijau-energi);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+        }
+        
+        .logo-text span {
+            color: var(--jingga-petir);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--jingga-petir);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* BAGIAN UTAMA */
+        .section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--biru-teknologi);
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--jingga-petir);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        /* REVOLUSI CARD */
+        .revolusi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .revolusi-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+        }
+        
+        .revolusi-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .card-header {
+            padding: 25px;
+            background: var(--hijau-energi);
+            color: white;
+        }
+        
+        .card-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .card-body {
+            padding: 30px;
+        }
+        
+        .card-body p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            background: #e0f7fa;
+            color: #006064;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px;
+        }
+        
+        /* TIMELINE REVOLUSI */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--hijau-energi);
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 70px;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 70px;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        
+        .timeline-content:before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--jingga-petir);
+            border-radius: 50%;
+            top: 30px;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content:before {
+            right: -75px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content:before {
+            left: -75px;
+        }
+        
+        .timeline-date {
+            font-weight: 700;
+            color: var(--jingga-petir);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        /* PARTNER LOGO */
+        .partner-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .partner-logo {
+            height: 80px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+        
+        .partner-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        /* FOOTER REVOLUSI */
+        .footer-revolusi {
+            background: var(--abu-revolusi);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--jingga-petir);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-col a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-col a:hover {
+            color: var(--jingga-petir);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--jingga-petir);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* RESPONSIF */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.3rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 10px;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                left: 0;
+                padding-right: 0;
+                padding-left: 70px;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content:before,
+            .timeline-item:nth-child(even) .timeline-content:before {
+                left: -45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER HERO -->
+    <header class="hero">
+        <h1>DESAKARBON</h1>
+        <p class="hero-tagline">Revolusi Karbon Desa Berbasis Blockchain Pertama di Dunia</p>
+        <button class="cta-button">LIHAT DEMO REVOLUSI</button>
+    </header>
+
+    <!-- NAVIGASI -->
+    <nav class="nav-revolusi">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-solar-panel"></i>
+                </div>
+                <div class="logo-text">DESA<span>KARBON</span></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#teknologi"><i class="fas fa-microchip"></i> Teknologi</a></li>
+                <li><a href="#timeline"><i class="fas fa-history"></i> Timeline</a></li>
+                <li><a href="#fitur"><i class="fas fa-bolt"></i> Fitur</a></li>
+                <li><a href="#mitra"><i class="fas fa-handshake"></i> Mitra</a></li>
+                <li><a href="#kontak"><i class="fas fa-comments"></i> Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- TEKNOLOGI REVOLUSIONER -->
+    <section class="section" id="teknologi">
+        <div class="section-title">
+            <h2>Teknologi Penghancur Batas</h2>
+        </div>
+        <div class="revolusi-grid">
+            <div class="revolusi-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Blockchain Desa</h3>
+                </div>
+                <div class="card-body">
+                    <p>Setiap watt energi bersih dicatat di blockchain Ethereum dengan sertifikasi Verra. Transparansi mutlak dari atap desa ke pasar global.</p>
+                    <div>
+                        <span class="tech-badge">Solidity 0.8</span>
+                        <span class="tech-badge">ERC-1155 NFT</span>
+                        <span class="tech-badge">Chainlink Oracle</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="revolusi-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <h3>Jaringan LoRaWAN</h3>
+                </div>
+                <div class="card-body">
+                    <p>Infrastruktur komunikasi mandiri dengan jangkauan 15km. Tetap terhubung meski di lembah terpencil tanpa internet!</p>
+                    <div>
+                        <span class="tech-badge">LoRa 868MHz</span>
+                        <span class="tech-badge">MQTT Protocol</span>
+                        <span class="tech-badge">Offline Sync</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="revolusi-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>AI Optimizer</h3>
+                </div>
+                <div class="card-body">
+                    <p>Kecerdasan buatan lokal menganalisa pola cuaca & konsumsi untuk memaksimalkan pendapatan karbon desa.</p>
+                    <div>
+                        <span class="tech-badge">TensorFlow Lite</span>
+                        <span class="tech-badge">Edge Computing</span>
+                        <span class="tech-badge">Predictive Model</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE REVOLUSI -->
+    <section class="section" id="timeline">
+        <div class="section-title">
+            <h2>Jalur Revolusi 24 Jam</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">08:00 WITA</span>
+                    <h3>Pendaratan Pasukan Teknisi</h3>
+                    <p>Tim inti tiba di Desa Tenganan, Bali dengan paket hardware revolusioner</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">09:30 WITA</span>
+                    <h3>Pemasangan Panel Surya</h3>
+                    <p>20 unit panel surya terpasang di atap balai desa dengan sensor IoT</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">11:00 WITA</span>
+                    <h3>Deploy Smart Contract</h3>
+                    <p>Kontrak ERC-1155 Desakarbon di-deploy di jaringan Sepolia</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">13:00 WITA</span>
+                    <h3>Pelatihan Warga</h3>
+                    <p>Pelatihan penggunaan dashboard dan dompet digital untuk 50 warga</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">15:15 WITA</span>
+                    <h3>Mint NFT Perdana!</h3>
+                    <p>Kepala desa mencetak NFT karbon pertama dari energi surya desa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MITRA GLOBAL -->
+    <section class="section" id="mitra">
+        <div class="section-title">
+            <h2>Bala Bantuan Revolusi</h2>
+        </div>
+        <div class="partner-grid">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Verra_Logo.png" alt="Verra" class="partner-logo" style="height: 50px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Ethereum-icon-purple.png" alt="Ethereum" class="partner-logo">
+            <img src="https://seeklogo.com/images/C/chainlink-link-logo-4D470EB325-seeklogo.com.png" alt="Chainlink" class="partner-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Cloud" class="partner-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="OpenAI" class="partner-logo">
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-revolusi" id="kontak">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Desakarbon</h3>
+                <p>Revolusi energi desa berbasis blockchain pertama di dunia yang memberdayakan komunitas lokal melalui teknologi Web3.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Navigasi</h3>
+                <ul>
+                    <li><a href="#teknologi">Teknologi</a></li>
+                    <li><a href="#timeline">Timeline</a></li>
+                    <li><a href="#fitur">Fitur</a></li>
+                    <li><a href="#mitra">Mitra</a></li>
+                    <li><a href="https://desakarbon-sandbox.vercel.app">Live Demo</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Dokumen Revolusi</h3>
+                <ul>
+                    <li><a href="#">Whitepaper v1.0</a></li>
+                    <li><a href="#">Smart Contract Audit</a></li>
+                    <li><a href="#">Sertifikasi Verra</a></li>
+                    <li><a href="#">Panduan Desa</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Komando Pusat</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Jl. Revolusi Digital No. 88, Bali</li>
+                    <li><i class="fas fa-envelope"></i> komando@desakarbon.id</li>
+                    <li><i class="fas fa-phone"></i> +62 361 888 7777</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 DESAKARBON - Revolusi Dimulai dari Atap Desa</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animasi scroll halus
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Efek paralaks hero
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            document.querySelector('.hero').style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+        });
+    </script>
+</body>
+</html>

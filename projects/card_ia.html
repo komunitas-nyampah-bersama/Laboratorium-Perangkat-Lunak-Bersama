@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Galeri Proyek & NFT Passport</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+    }
+
+    .container {
+      display: flex;
+      overflow-x: auto;
+      padding: 20px;
+      gap: 16px;
+    }
+
+    .card {
+      min-width: 250px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 10px;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin: 8px 0;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .passport-container {
+      position: relative;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 7px 36px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+
+    .editable {
+      padding: 4px;
+      margin-bottom: 8px;
+    }
+
+    .draggable {
+      position: absolute;
+      cursor: move;
+      user-select: none;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .passport-container {
+        width: 95%;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <img src="https://via.placeholder.com/250x150" alt="Proyek A">
+      <h3>Proyek A</h3>
+      <p>Deskripsi proyek A yang singkat dan padat.</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/250x150" alt="Proyek B">
+      <h3>Proyek B</h3>
+      <p>Penjelasan tentang proyek B dari Nyampah Bersama.</p>
+    </div>
+  </div>
+
+  <div class="passport-container">
+    <div class="editable draggable" style="top:20px; left:20px;">🛂 NFT Passport</div>
+    <div class="editable draggable" style="top:60px; left:30px;">Nama: Muhamad Oky</div>
+    <div class="editable draggable" style="top:100px; left:30px;">Komunitas: Nyampah Bersama</div>
+    <div class="editable draggable" style="top:140px; left:30px;">Tipe: Peneliti Rakyat</div>
+  </div>
+
+  <script>
+    function makeElementDraggable(el) {
+      let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+      el.onmousedown = dragMouseDown;
+      el.ontouchstart = dragMouseDown;
+
+      function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+
+        pos3 = e.clientX || e.touches?.[0].clientX;
+        pos4 = e.clientY || e.touches?.[0].clientY;
+
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+
+        document.ontouchend = closeDragElement;
+        document.ontouchmove = elementDrag;
+      }
+
+      function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+
+        pos1 = pos3 - (e.clientX || e.touches?.[0].clientX);
+        pos2 = pos4 - (e.clientY || e.touches?.[0].clientY);
+        pos3 = e.clientX || e.touches?.[0].clientX;
+        pos4 = e.clientY || e.touches?.[0].clientY;
+
+        el.style.top = (el.offsetTop - pos2) + "px";
+        el.style.left = (el.offsetLeft - pos1) + "px";
+      }
+
+      function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+        document.ontouchend = null;
+        document.ontouchmove = null;
+      }
+    }
+
+    function initDraggableElements() {
+      const dragItems = document.querySelectorAll('.draggable');
+      dragItems.forEach(item => makeElementDraggable(item));
+    }
+
+    document.addEventListener("DOMContentLoaded", initDraggableElements);
+  </script>
+</body>
+</html>

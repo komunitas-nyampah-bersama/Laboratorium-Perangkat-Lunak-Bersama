@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokenisasi Aktivitas Lingkungan - Nyampah Bersama</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e8449;
+            --secondary: #27ae60;
+            --accent: #2ecc71;
+            --dark: #145a32;
+            --light: #e8f5e9;
+            --earth: #8d6e63;
+            --sand: #d7ccc8;
+            --text: #2c3e50;
+            --bg: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7f6;
+            color: var(--text);
+            line-height: 1.7;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h100v100H0z" fill="none"/><path d="M20,20 Q40,5 60,20 T100,20 M20,60 Q40,45 60,60 T100,60 M20,40 Q40,25 60,40 T100,40" stroke="%23e8f5e9" stroke-width="0.5" fill="none"/></svg>');
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 132, 73, 0.85), rgba(20, 90, 50, 0.85)), 
+                        url('https://images.unsplash.com/photo-1528323273322-d81458248d40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2001&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            border: 2px solid white;
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1.2rem;
+            position: relative;
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 5px;
+            background-color: var(--accent);
+            border-radius: 3px;
+        }
+        
+        .section-title p {
+            max-width: 800px;
+            margin: 1.5rem auto 0;
+            font-size: 1.15rem;
+            color: var(--text);
+        }
+        
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--accent);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .card-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(39,174,96,0.15), rgba(46,204,113,0.15));
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .problem-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--earth));
+        }
+        
+        /* Token Definition */
+        .token-definition {
+            background-color: #f0f8f4;
+            position: relative;
+        }
+        
+        .earth-icon {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 8rem;
+            color: rgba(39, 174, 96, 0.1);
+            z-index: 0;
+        }
+        
+        /* Activities Table */
+        .activities-section {
+            background: linear-gradient(to bottom, #f8f9fa, #e8f5e9);
+        }
+        
+        .activities-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .activities-table th {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.2rem 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .activities-table td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .activities-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .activities-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .activities-table tr:hover {
+            background-color: var(--light);
+        }
+        
+        .token-badge {
+            background-color: var(--light);
+            color: var(--dark);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            border: 1px solid var(--accent);
+        }
+        
+        /* Reasons Section */
+        .reasons-section {
+            background-color: white;
+        }
+        
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .reason-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .reason-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 25px rgba(46,204,113,0.15);
+        }
+        
+        .reason-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        
+        .reason-title {
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* System Section */
+        .system-section {
+            background: linear-gradient(to bottom, #e8f5e9, #d0ebd7);
+        }
+        
+        .system-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 220px;
+            max-width: 250px;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .step-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Future Section */
+        .future-section {
+            background-color: white;
+            position: relative;
+        }
+        
+        .future-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .future-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .future-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .future-image img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 5px solid white;
+        }
+        
+        .benefit-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+        
+        .benefit-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .benefit-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 5rem 0;
+            background: linear-gradient(rgba(20, 90, 50, 0.85), rgba(20, 90, 50, 0.85)), 
+                        url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block;
+            padding: 5px 0;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            font-size: 0.95rem;
+            color: #aaa;
+        }
+        
+        .earth-tone {
+            color: var(--earth);
+            font-weight: 600;
+        }
+        
+        .token-highlight {
+            background: linear-gradient(120deg, rgba(39,174,96,0.2), rgba(46,204,113,0.2));
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .hero-buttons, .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 1.8rem;
+            }
+            
+            .activities-table {
+                font-size: 0.9rem;
+            }
+            
+            .activities-table th, 
+            .activities-table td {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-recycle logo-icon"></i>
+                <div class="logo-text">Nyampah<span>Bersama</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#problem">Masalah</a></li>
+                    <li><a href="#token">Tokenisasi</a></li>
+                    <li><a href="#activities">Aktivitas</a></li>
+                    <li><a href="#system">Sistem Kami</a></li>
+                    <li><a href="#future">Masa Depan</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Tokenisasi Aktivitas Lingkungan</h1>
+            <div class="hero-subtitle">Setiap Aksi Hijau Jadi Nilai Nyata</div>
+            <p>Dengan konsep revolusioner ini, tindakan sederhana seperti memilah sampah atau mengedukasi warga tidak hanya membersihkan lingkungan, tapi juga menghasilkan nilai ekonomi yang riil dan berkelanjutan.</p>
+            <div class="hero-buttons">
+                <a href="#system" class="btn btn-primary">Mulai Sekarang</a>
+                <a href="#token" class="btn btn-outline">Pelajari Konsep</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="problem-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pendahuluan: Aksi Lingkungan Selama Ini Tidak Dihitung</h2>
+                <p>Mengapa kontribusi lingkungan selama ini tidak mendapatkan pengakuan yang semestinya?</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="card-title">Pahlawan Tanpa Reward</h3>
+                </div>
+                <div class="card-content">
+                    <p>Selama ini, orang-orang yang peduli lingkungan sering dianggap pahlawan… Tapi tanpa reward. Tanpa sistem. Bayangkan: mereka pilah sampah tiap hari, edukasi warga, setor minyak jelantah — tapi tak pernah "terlihat" nilainya.</p>
+                    
+                    <div class="highlight">
+                        <p>Di dunia digital, semuanya bisa dihitung. Inilah alasan lahirnya konsep tokenisasi aktivitas lingkungan. Bukan buat gaya-gayaan, tapi supaya setiap tindakan baik punya jejak, nilai, dan dampak yang bertahan.</p>
+                    </div>
+                    
+                    <p>Kita hidup di era di mana setiap "like" dan "share" di media sosial punya nilai. Tapi aksi nyata untuk menyelamatkan bumi? Seringkali hanya dapat pujian sepintas lalu dilupakan. Padahal kontribusi lingkungan ini memiliki nilai riil yang seharusnya bisa diukur dan diberi penghargaan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Token Definition -->
+    <section id="token" class="token-definition">
+        <div class="container">
+            <div class="section-title">
+                <h2>Apa Itu Tokenisasi Aktivitas Lingkungan?</h2>
+                <p>Mengubah aksi nyata menjadi aset digital bernilai</p>
+            </div>
+            
+            <div class="card">
+                <i class="fas fa-earth-asia earth-icon"></i>
+                <div class="card-content">
+                    <p><strong>Tokenisasi</strong> adalah proses mengubah suatu aktivitas atau aset menjadi nilai digital — biasanya dalam bentuk poin, sertifikat, atau token berbasis blockchain.</p>
+                    
+                    <p>Dalam konteks lingkungan:</p>
+                    
+                    <p>Setiap aksi pilah, setor, tanam pohon, edukasi, bisa diberikan token sebagai bentuk pengakuan + insentif. <span class="token-highlight">Token = bukti kontribusi</span> → bisa ditukar, dicatat, atau diwariskan.</p>
+                    
+                    <p>Ini adalah revolusi cara kita memandang kontribusi lingkungan. Tidak lagi sebagai kegiatan sukarela semata, tetapi sebagai bagian dari ekonomi hijau yang memberikan manfaat nyata bagi pelakunya.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="activities-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Aktivitas yang Bisa Ditokenkan</h2>
+                <p>Setiap tindakan lingkungan bernilai dalam ekosistem kami</p>
+            </div>
+            
+            <table class="activities-table">
+                <thead>
+                    <tr>
+                        <th>Aktivitas</th>
+                        <th>Token Diberikan</th>
+                        <th>Nilai Tambah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pilah sampah harian</td>
+                        <td><span class="token-badge">1 NyampahCoin</span></td>
+                        <td>Bisa ditukar pulsa / hadiah</td>
+                    </tr>
+                    <tr>
+                        <td>Edukasi warga 1x/minggu</td>
+                        <td><span class="token-badge">5 XP + badge NFT</span></td>
+                        <td>Diakui sebagai Duta Lingkungan</td>
+                    </tr>
+                    <tr>
+                        <td>Setor minyak jelantah</td>
+                        <td><span class="token-badge">Coin setara liter disetor</span></td>
+                        <td>Konversi energi + uang</td>
+                    </tr>
+                    <tr>
+                        <td>Upload foto nyampah</td>
+                        <td><span class="token-badge">Proof of Clean Act NFT</span></td>
+                        <td>Bukti kontribusi untuk masa depan</td>
+                    </tr>
+                    <tr>
+                        <td>Ajak warga baru</td>
+                        <td><span class="token-badge">Coin referral + naik reputasi</span></td>
+                        <td>Jaringan bertumbuh → reward lebih besar</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="highlight">
+                <p><i class="fas fa-lightbulb"></i> Setiap aksi kecil yang Anda lakukan hari ini menciptakan ripple effect bagi lingkungan dan ekonomi masa depan. Token adalah bukti nyata kontribusi Anda yang akan terus bernilai.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reasons Section -->
+    <section class="reasons-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kenapa Harus Ditokenkan?</h2>
+                <p>Nilai lebih dari tokenisasi aktivitas lingkungan</p>
+            </div>
+            
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-number">1</div>
+                    <h3 class="reason-title">Transparan & Bisa Dilacak</h3>
+                    <p>Token berbasis blockchain = data kontribusi tidak bisa dimanipulasi. Setiap aksi tercatat secara permanen dan dapat diverifikasi oleh siapa pun.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-number">2</div>
+                    <h3 class="reason-title">Insentif Nyata</h3>
+                    <p>Aktivitas baik tidak lagi dianggap sukarela, tapi bagian dari ekonomi hijau yang memberikan manfaat finansial langsung kepada pelaku.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-number">3</div>
+                    <h3 class="reason-title">Reputasi Lingkungan</h3>
+                    <p>Setiap warga punya histori digital: siapa dia, berapa banyak bantu bumi. Reputasi ini bisa menjadi aset berharga di masa depan.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-number">4</div>
+                    <h3 class="reason-title">Warisan Digital</h3>
+                    <p>Token & NFT kontribusi bisa disimpan, dijadikan rekam jejak, bahkan diwariskan ke generasi berikutnya sebagai bukti kontribusi untuk bumi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Section -->
+    <section id="system" class="system-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sistem Tokenisasi Aktivitas Rakyat</h2>
+                <p>Nyampah Bersama: Mengubah aksi menjadi aset</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-content">
+                    <p>Kami membangun sistem sederhana namun powerful:</p>
+                    <ul class="benefit-list">
+                        <li>Warga mengerjakan misi dari rumah (pilah, setor, edukasi)</li>
+                        <li>Warga lapor via Glide / WhatsApp / Form sederhana</li>
+                        <li>Aktivitas masuk ke sistem blockchain kami</li>
+                        <li>Token diberikan otomatis: NyampahCoin / NFT / badge</li>
+                        <li>Bisa ditukar → pulsa, produk, tabungan, bahkan hak suara di komunitas</li>
+                    </ul>
+                    
+                    <div class="highlight">
+                        <p><i class="fas fa-home"></i> <strong>Satu rumah = satu node digital ekonomi hijau.</strong> Setiap keluarga menjadi pusat perubahan yang menciptakan nilai dari tindakan lingkungan sehari-hari.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-title" style="margin-top: 4rem;">
+                <h2>Langkah-Langkah Tokenisasi</h2>
+                <p>Cara mudah memulai perjalanan tokenisasi Anda</p>
+            </div>
+            
+            <div class="system-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Daftar & Punya Wallet</h3>
+                    <p>Bisa pakai Glide, Zerion, atau wallet bawaan kami. Cukup 5 menit!</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Ikut Aktivitas</h3>
+                    <p>Pilah, edukasi, setor, ajak tetangga - pilih yang sesuai kemampuan</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Submit Bukti</h3>
+                    <p>Foto / video / form sederhana. Kami catat semua aktivitas Anda</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Token Masuk</h3>
+                    <p>Setiap aksi = nilai. Nilai = reward. Simpan atau gunakan segera!</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Gunakan atau Wariskan</h3>
+                    <p>Tukar hadiah, donasikan, atau simpan sebagai identitas digital</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Section -->
+    <section id="future" class="future-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tokenisasi + Ekonomi Sirkular = Masa Depan Berbasis Aksi</h2>
+                <p>Revolusi cara kita berinteraksi dengan lingkungan dan ekonomi</p>
+            </div>
+            
+            <div class="future-content">
+                <div class="future-text">
+                    <div class="card">
+                        <div class="card-content">
+                            <p>Dengan sistem ini:</p>
+                            <ul class="benefit-list">
+                                <li>Aktivitas harian warga langsung masuk ke ekonomi digital</li>
+                                <li>Tidak perlu menunggu bantuan, CSR, atau donasi</li>
+                                <li>Rakyat diberdayakan lewat kontribusi, bukan utang</li>
+                                <li>Ekonomi sirkular bisa diukur, diakui, dan diberi nilai secara adil</li>
+                            </ul>
+                            
+                            <div class="highlight">
+                                <p>📊 <strong>Ekonomi hijau yang inklusif</strong> - di mana petugas kebersihan, ibu rumah tangga, dan anak sekolah memiliki akses yang sama untuk menciptakan nilai dari tindakan lingkungan mereka.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="future-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Masa Depan Ekonomi Hijau">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Aksi Nyata Kini Punya Jejak Digital</h2>
+            <p>"Kalau dulu hanya perusahaan yang punya aset digital, hari ini — kamu yang pilah sampah pun punya."</p>
+            <p>Melalui konsep tokenisasi aktivitas lingkungan, Nyampah Bersama membawa kamu masuk ke sistem baru, di mana setiap tindakan hijau → reward nyata → masa depan lebih bersih dan berdaya.</p>
+            
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-download"></i> Download Panduan
+                </a>
+                <a href="#" class="btn btn-outline">
+                    <i class="fas fa-users"></i> Gabung Komunitas
+                </a>
+                <a href="#" class="btn btn-outline">
+                    <i class="fas fa-gift"></i> Lihat Reward
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Nyampah Bersama</h3>
+                    <p>Pionir ekonomi sirkular berbasis token di Asia Tenggara. Mengubah aksi lingkungan menjadi aset digital bernilai.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Ekosistem Kami</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Token NyampahCoin</a></li>
+                        <li><a href="#">NFT Kontribusi Lingkungan</a></li>
+                        <li><a href="#">Pusat Pelatihan Zero-Waste</a></li>
+                        <li><a href="#">Pasar Hijau Digital</a></li>
+                        <li><a href="#">Komunitas Duta Lingkungan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Panduan Tokenisasi</a></li>
+                        <li><a href="#">Infografis "Apa itu Tokenisasi"</a></li>
+                        <li><a href="#">Materi Edukasi RT/RW</a></li>
+                        <li><a href="#">Modul Sekolah Hijau</a></li>
+                        <li><a href="#">Dashboard Kontribusi</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontak</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Palembang, Sumatera Selatan</li>
+                        <li><i class="fas fa-phone"></i> +62 812 3456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@nyampahbersama.org</li>
+                        <li><i class="fas fa-clock"></i> Senin-Jumat: 9:00 - 17:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Nyampah Bersama. Seluruh hak cipta dilindungi. | "Setiap Aksi Punya Nilai"</p>
+                <p>Bagian dari Inisiatif Ekonomi Sirkular Asia Tenggara</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

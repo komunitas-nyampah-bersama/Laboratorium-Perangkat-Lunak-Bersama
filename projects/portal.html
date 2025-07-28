@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Ekosistem NyampahBersama</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0; font-family: 'Segoe UI', sans-serif; background: #f6f8fa;
+    }
+    header {
+      background: #18b875; padding: 24px; text-align: center; color: white;
+    }
+    h1 { margin: 0; }
+    .container {
+      padding: 20px;
+      display: flex; flex-wrap: wrap; gap: 16px;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 280px;
+      transition: 0.3s;
+    }
+    .card:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .card h3 { margin: 0 0 10px; font-size: 18px; color: #18b875; }
+    .card p { font-size: 14px; color: #444; margin: 0 0 10px; }
+    .card a {
+      text-decoration: none; background: #18b875;
+      color: white; padding: 8px 12px;
+      border-radius: 6px; display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌱 Ekosistem GitHub NyampahBersama</h1>
+    <p>Jelajahi proyek komunitas yang sedang membangun masa depan bersih dan adil berbasis teknologi terbuka.</p>
+    <p><a href="https://orcid.org/0009-0003-5705-8107" target="_blank" style="color: #fff; text-decoration: underline;">ORCID Komunitas</a> | <a href="https://nyampahbersama.com" style="color: #fff;">Website Resmi</a></p>
+  </header>
+
+  <div class="container" id="repo-list">
+    <!-- Kartu repo akan dirender dari JS -->
+  </div>
+
+  <script>
+    const repos = [
+      {
+        name: "nyampah-bersama",
+        desc: "Portal utama komunitas NyampahBersama.",
+        url: "https://github.com/komunitasnyampah/nyampah-bersama"
+      },
+      {
+        name: "Dompet-Cerdas-Bersama",
+        desc: "Dompet digital komunitas berbasis Thirdweb & BASE.",
+        url: "https://github.com/komunitasnyampah/Dompet-Cerdas-Bersama"
+      },
+      {
+        name: "nft_blog",
+        desc: "Blog Web3 terdesentralisasi dari komunitas.",
+        url: "https://github.com/komunitasnyampah/nft_blog"
+      },
+      {
+        name: "ai-komunitas-bersama",
+        desc: "AI Assistant komunitas untuk edukasi dan interaksi.",
+        url: "https://github.com/komunitasnyampah/ai-komunitas-bersama"
+      },
+      {
+        name: "bank-sampah-digital-bersama",
+        desc: "Sistem bank sampah digital berbasis blockchain.",
+        url: "https://github.com/komunitasnyampah/bank-sampah-digital-bersama"
+      }
+    ];
+
+    const container = document.getElementById("repo-list");
+    repos.forEach(repo => {
+      container.innerHTML += `
+        <div class="card">
+          <h3>${repo.name}</h3>
+          <p>${repo.desc}</p>
+          <a href="${repo.url}" target="_blank">🌍 Lihat di GitHub</a>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>

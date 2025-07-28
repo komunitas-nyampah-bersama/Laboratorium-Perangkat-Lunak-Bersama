@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyampah Bersama - Akademi & Edukasi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --secondary: #ffc107;
+            --light: #f5f5f5;
+            --dark: #333;
+            --accent: #00bcd4;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            padding-top: 60px;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary) !important;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .section-title {
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin: 40px 0 25px;
+            color: var(--primary-dark);
+        }
+        
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            margin-bottom: 20px;
+            border: none;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            padding: 15px 20px;
+        }
+        
+        .level-card {
+            border-left: 4px solid var(--primary);
+        }
+        
+        .level-1 { border-left-color: #4CAF50; }
+        .level-2 { border-left-color: #8BC34A; }
+        .level-3 { border-left-color: #CDDC39; }
+        .level-4 { border-left-color: #FFC107; }
+        .level-5 { border-left-color: #FF9800; }
+        .level-6 { border-left-color: #FF5722; }
+        .level-7 { border-left-color: #F44336; }
+        
+        .badge-level {
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .table-hover tbody tr:hover {
+            background-color: rgba(46, 125, 50, 0.05);
+        }
+        
+        .table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .feature-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            height: 100%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: white;
+        }
+        
+        .impact-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0;
+            line-height: 1;
+        }
+        
+        .impact-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #0097a7;
+            border-color: #0097a7;
+            transform: translateY(-2px);
+        }
+        
+        .mission-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .mission-icon {
+            font-size: 24px;
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary);
+        }
+        
+        .footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .video-placeholder {
+            background: linear-gradient(135deg, #4CAF50 0%, #00bcd4 100%);
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .module-category {
+            background-color: rgba(46, 125, 50, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .module-list {
+            padding-left: 20px;
+        }
+        
+        .module-list li {
+            margin-bottom: 8px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin-top: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 20px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 4px solid white;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 0;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-recycle me-2"></i>Nyampah Bersama
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="fas fa-graduation-cap me-1"></i> Akademi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-leaf me-1"></i> Gerakan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart me-1"></i> Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-users me-1"></i> Komunitas</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-light me-2"><i class="fas fa-user me-1"></i> Masuk</a>
+                    <a href="#" class="btn btn-light"><i class="fas fa-user-plus me-1"></i> Daftar</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Akademi & Edukasi</h1>
+            <p class="lead mb-4">Transformasi pengetahuan menjadi aksi nyata melalui kurikulum berjenjang dan berbasis bukti</p>
+            <a href="#" class="btn btn-light btn-lg px-4 py-2 me-2"><i class="fas fa-play-circle me-2"></i>Mulai Belajar</a>
+            <a href="#" class="btn btn-outline-light btn-lg px-4 py-2"><i class="fas fa-book me-2"></i>Lihat Modul</a>
+        </div>
+    </section>
+
+    <div class="container mb-5">
+        <!-- Akademi Levels -->
+        <h2 class="section-title">Nyampah Akademi</h2>
+        <div class="row">
+            <!-- Level 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card level-card level-1">
+                    <div class="card-body">
+                        <span class="badge-level">Level 1</span>
+                        <h5 class="card-title mt-2">Pemula</h5>
+                        <ul>
+                            <li>Pengenalan dasar pengelolaan sampah</li>
+                            <li>Prinsip 3R (Reduce, Reuse, Recycle)</li>
+                            <li>Pengenalan BlockCycle & BurnCycle</li>
+                            <li>Quiz pengetahuan dasar</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary w-100">Mulai Level Ini</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Level 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card level-card level-2">
+                    <div class="card-body">
+                        <span class="badge-level">Level 2</span>
+                        <h5 class="card-title mt-2">Praktisi Awal</h5>
+                        <ul>
+                            <li>Teknik pemilahan sampah</li>
+                            <li>Dokumentasi aksi dengan bukti digital</li>
+                            <li>Pengenalan NFT bukti aksi</li>
+                            <li>Praktik lapangan terbimbing</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary w-100">Mulai Level Ini</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Level 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card level-card level-3">
+                    <div class="card-body">
+                        <span class="badge-level">Level 3</span>
+                        <h5 class="card-title mt-2">Praktisi Menengah</h5>
+                        <ul>
+                            <li>Pengolahan sampah organik</li>
+                            <li>Pengenalan sistem reward digital</li>
+                            <li>Kolaborasi dalam komunitas</li>
+                            <li>Proyek mini mandiri</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary w-100">Mulai Level Ini</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Level 4 -->
+            <div class="col-md-4 mb-4">
+                <div class="card level-card level-4">
+                    <div class="card-body">
+                        <span class="badge-level">Level 4</span>
+                        <h5 class="card-title mt-2">Praktisi Mahir</h5>
+                        <ul>
+                            <li>Upcycling produk dari sampah</li>
+                            <li>Penerapan BurnCycle untuk transformasi nilai</li>
+                            <li>Monetisasi produk hasil olahan</li>
+                            <li>Publikasi hasil aksi</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary w-100">Mulai Level Ini</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Level 5 -->
+            <div class="col-md-4 mb-4">
+                <div class="card level-card level-5">
+                    <div class="card-body">
+                        <span class="badge-level">Level 5</span>
+                        <h5 class="card-title mt-2">Fasilitator</h5>
+                        <ul>
+                            <li>Teknik fasilitasi dan edukasi</li>
+                            <li>Pengembangan program komunitas</li>
+                            <li>Pengukuran dampak sosial</li>
+                            <li>Praktik fasilitasi terbimbing</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary w-100">Mulai Level Ini</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Level 6 & 7 -->
+            <div class="col-md-4 mb-4">
+                <div class="card level-card level-6">
+                    <div class="card-body">
+                        <span class="badge-level">Level 6</span>
+                        <h5 class="card-title mt-2">Peneliti</h5>
+                        <ul>
+                            <li>Metodologi riset aksi partisipatif</li>
+                            <li>Analisis data dan dampak</li>
+                            <li>Penulisan publikasi ilmiah</li>
+                            <li>Proyek riset kolaboratif</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary w-100">Mulai Level Ini</a>
+                    </div>
+                </div>
+                
+                <div class="card level-card level-7 mt-4">
+                    <div class="card-body">
+                        <span class="badge-level">Level 7</span>
+                        <h5 class="card-title mt-2">Inovator</h5>
+                        <ul>
+                            <li>Pengembangan solusi teknologi</li>
+                            <li>Integrasi Web3 dengan aksi lingkungan</li>
+                            <li>Pengembangan kebijakan dan advokasi</li>
+                            <li>Inkubasi proyek inovatif</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary w-100">Mulai Level Ini</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 55 Modul Edukasi -->
+        <h2 class="section-title">55 Modul Edukasi</h2>
+        <p class="lead mb-4">Eksplorasi lengkap ekosistem 2BCycle melalui modul-modul terstruktur</p>
+        
+        <div class="row">
+            <!-- Kategori 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="module-category">
+                    <h4><i class="fas fa-trash-alt me-2"></i>Dasar-Dasar Pengelolaan Sampah</h4>
+                    <ul class="module-list">
+                        <li>Pengenalan jenis-jenis sampah</li>
+                        <li>Teknik pemilahan efektif</li>
+                        <li>Pengomposan skala rumah tangga</li>
+                        <li>Pengelolaan sampah B3</li>
+                        <li>Bank sampah & pengelolaannya</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Kategori 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="module-category">
+                    <h4><i class="fas fa-microchip me-2"></i>Teknologi & Inovasi</h4>
+                    <ul class="module-list">
+                        <li>Blockchain untuk transparansi lingkungan</li>
+                        <li>NFT sebagai bukti aksi (PoCA)</li>
+                        <li>Wallet digital untuk reward</li>
+                        <li>Aplikasi Glide untuk pelacakan aksi</li>
+                        <li>Integrasi IPFS untuk data terdesentralisasi</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Kategori 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="module-category">
+                    <h4><i class="fas fa-chart-line me-2"></i>Ekonomi & Keberlanjutan</h4>
+                    <ul class="module-list">
+                        <li>Ekonomi sirkular dalam praktik</li>
+                        <li>Tokenisasi aksi lingkungan</li>
+                        <li>Model bisnis berkelanjutan</li>
+                        <li>Pengukuran dampak karbon</li>
+                        <li>Kolaborasi multi-stakeholder</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mb-5">
+            <a href="#" class="btn btn-primary btn-lg"><i class="fas fa-book-open me-2"></i>Lihat Semua Modul</a>
+        </div>
+
+        <!-- Misi Harian & Reward -->
+        <h2 class="section-title">Misi Harian & Reward</h2>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-tasks me-2"></i>Daftar Misi Harian
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Misi</th>
+                                        <th>XP</th>
+                                        <th>Token</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><i class="fas fa-sort me-2"></i>Pemilahan sampah harian</td>
+                                        <td>5</td>
+                                        <td>1</td>
+                                        <td><a href="#" class="btn btn-sm btn-outline-primary">Ambil Misi</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-camera me-2"></i>Dokumentasi aksi dengan foto</td>
+                                        <td>10</td>
+                                        <td>2</td>
+                                        <td><a href="#" class="btn btn-sm btn-outline-primary">Ambil Misi</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-file-alt me-2"></i>Membuat konten edukasi</td>
+                                        <td>20</td>
+                                        <td>5</td>
+                                        <td><a href="#" class="btn btn-sm btn-outline-primary">Ambil Misi</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-user-plus me-2"></i>Mengajak anggota baru</td>
+                                        <td>25</td>
+                                        <td>10</td>
+                                        <td><a href="#" class="btn btn-sm btn-outline-primary">Ambil Misi</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fas fa-users me-2"></i>Proyek komunitas mingguan</td>
+                                        <td>50</td>
+                                        <td>20</td>
+                                        <td><a href="#" class="btn btn-sm btn-outline-primary">Ambil Misi</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-trophy me-2"></i>Progress Saya
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>XP Saat Ini</span>
+                            <strong>120 XP</strong>
+                        </div>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" style="width: 40%"></div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Token Saat Ini</span>
+                            <strong>45 Token</strong>
+                        </div>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" style="width: 60%"></div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Level Saat Ini</span>
+                            <strong>Level 2</strong>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%"></div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <h5 class="mt-4">Reward Tersedia</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Voucher Belanja
+                                <span class="badge bg-primary rounded-pill">25 Token</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                E-book Ekologi
+                                <span class="badge bg-primary rounded-pill">20 Token</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Workshop Gratis
+                                <span class="badge bg-primary rounded-pill">60 Token</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Jadwal Zoom & Workshop -->
+        <h2 class="section-title">Jadwal Zoom & Workshop</h2>
+        <div class="card mb-5">
+            <div class="card-header">
+                <i class="fas fa-calendar-alt me-2"></i>Jadwal Terkini
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Waktu</th>
+                                <th>Topik</th>
+                                <th>Pembicara</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2 Juli 2025</td>
+                                <td>19:00 WIB</td>
+                                <td>Pengenalan 2BCycle untuk Pemula</td>
+                                <td>Tim Nyampah Bersama</td>
+                                <td><a href="#" class="btn btn-sm btn-primary">Daftar</a></td>
+                            </tr>
+                            <tr>
+                                <td>9 Juli 2025</td>
+                                <td>19:00 WIB</td>
+                                <td>Workshop Pemilahan Sampah Efektif</td>
+                                <td>Dr. Adi Prasetyo</td>
+                                <td><a href="#" class="btn btn-sm btn-primary">Daftar</a></td>
+                            </tr>
+                            <tr>
+                                <td>16 Juli 2025</td>
+                                <td>19:00 WIB</td>
+                                <td>NFT & Tokenisasi Aksi Lingkungan</td>
+                                <td>Tim Blockchain</td>
+                                <td><a href="#" class="btn btn-sm btn-primary">Daftar</a></td>
+                            </tr>
+                            <tr>
+                                <td>23 Juli 2025</td>
+                                <td>19:00 WIB</td>
+                                <td>Pengomposan Skala Rumah Tangga</td>
+                                <td>Praktisi Kompos</td>
+                                <td><a href="#" class="btn btn-sm btn-primary">Daftar</a></td>
+                            </tr>
+                            <tr>
+                                <td>30 Juli 2025</td>
+                                <td>19:00 WIB</td>
+                                <td>Monetisasi Produk Hasil Olahan</td>
+                                <td>Wirausaha Sosial</td>
+                                <td><a href="#" class="btn btn-sm btn-primary">Daftar</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alur Belajar -->
+        <h2 class="section-title">Alur Belajar</h2>
+        <div class="card mb-5">
+            <div class="card-body">
+                <div class="mermaid">
+                    graph TD;
+                    A["Mulai"] --> B["Pendaftaran"];
+                    B --> C["Asesmen Level"];
+                    C --> D["Modul Pembelajaran"];
+                    D --> E["Praktik & Misi Harian"];
+                    E --> F["Evaluasi & Refleksi"];
+                    F --> G["Naik Level?"];
+                    G -- Ya --> H["Level Berikutnya"];
+                    G -- Tidak --> E;
+                    H --> I["Sertifikasi"];
+                    I --> J["Menjadi Fasilitator"];
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulir Sertifikat Warga -->
+        <h2 class="section-title">Formulir Sertifikat Warga</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <i class="fas fa-file-certificate me-2"></i>Persyaratan Sertifikasi
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Menyelesaikan semua modul pada level yang diambil</li>
+                            <li>Mengumpulkan minimal 100 XP dari misi harian</li>
+                            <li>Menyelesaikan proyek praktik sesuai level</li>
+                            <li>Mengikuti minimal 3 sesi workshop/webinar</li>
+                            <li>Lulus evaluasi akhir dengan nilai minimal 75</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <i class="fas fa-list-ol me-2"></i>Langkah Pengajuan Sertifikat
+                    </div>
+                    <div class="card-body">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5>Isi formulir pengajuan di aplikasi Glide</h5>
+                            </div>
+                            <div class="timeline-item">
+                                <h5>Unggah bukti penyelesaian semua persyaratan</h5>
+                            </div>
+                            <div class="timeline-item">
+                                <h5>Tunggu verifikasi oleh tim BlockVerifier</h5>
+                            </div>
+                            <div class="timeline-item">
+                                <h5>Terima sertifikat NFT melalui wallet Anda</h5>
+                            </div>
+                            <div class="timeline-item">
+                                <h5>Bagikan di media sosial dan profil profesional Anda</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mb-5">
+            <a href="#" class="btn btn-primary btn-lg"><i class="fas fa-file-download me-2"></i>Ajukan Sertifikasi</a>
+        </div>
+
+        <!-- Akses Materi Pembelajaran -->
+        <h2 class="section-title">Akses Materi Pembelajaran</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-box text-center">
+                    <div class="icon-circle">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h4>Format Digital</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">E-book PDF</li>
+                        <li class="list-group-item">Video tutorial</li>
+                        <li class="list-group-item">Infografis</li>
+                        <li class="list-group-item">Podcast</li>
+                        <li class="list-group-item">Quiz interaktif</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="feature-box text-center">
+                    <div class="icon-circle">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h4>Akses Offline</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Modul cetak</li>
+                        <li class="list-group-item">Kartu aksi praktis</li>
+                        <li class="list-group-item">Buku panduan lapangan</li>
+                        <li class="list-group-item">Kit praktik lapangan</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="feature-box text-center">
+                    <div class="icon-circle">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Pembelajaran Kolaboratif</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Forum diskusi</li>
+                        <li class="list-group-item">Grup belajar</li>
+                        <li class="list-group-item">Sesi mentoring</li>
+                        <li class="list-group-item">Proyek tim</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><i class="fas fa-recycle me-2"></i>Nyampah Bersama</h5>
+                    <p>Transformasi sampah menjadi nilai. Transformasi aksi menjadi peradaban.</p>
+                    <div class="d-flex mt-3">
+                        <a href="#" class="me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-youtube fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h5>Tautan Cepat</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Akademi</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Modul Edukasi</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Workshop</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Sertifikasi</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Marketplace</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h5>Kontak Kami</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope me-2"></i> info@nyampahbersama.id</li>
+                        <li><i class="fas fa-phone me-2"></i> +62 21 1234 5678</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Jl. Hijau Lestari No. 15, Jakarta</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © 2025 Nyampah Bersama 2BCycle. Semua konten edukasi dilindungi di bawah lisensi CC-BY-NC-SA dan didokumentasikan di blockchain melalui IPFS.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize Mermaid.js for flowcharts
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

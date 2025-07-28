@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solusi Posting Konten HTML ke Media Sosial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #2b5876, #4e4376);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(0, 201, 255, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e0e0e0;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background: rgba(30, 30, 50, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-header {
+            padding: 20px;
+            background: rgba(0, 100, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .platform-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-content h3 {
+            margin-bottom: 15px;
+            color: #00c9ff;
+        }
+        
+        .card-content ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card-content li {
+            margin-bottom: 10px;
+        }
+        
+        .card-footer {
+            padding: 15px 25px;
+            background: rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-weight: bold;
+            color: #92fe9d;
+        }
+        
+        .tips-section {
+            margin-top: 50px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 20px;
+        }
+        
+        .tips-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: #92fe9d;
+        }
+        
+        .tip {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            align-items: center;
+        }
+        
+        .tip-number {
+            min-width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #00c9ff, #92fe9d);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .tip-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #00c9ff;
+        }
+        
+        .qr-section {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+        }
+        
+        .qr-container {
+            display: inline-block;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .qr-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #00c9ff, #92fe9d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            border-radius: 10px;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .tip {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bagaimana Menampilkan Konten HTML di Media Sosial?</h1>
+            <p class="subtitle">Sayangnya platform media sosial tidak mendukung HTML interaktif secara langsung, tapi ada beberapa solusi kreatif yang bisa Anda gunakan!</p>
+        </header>
+        
+        <div class="cards-container">
+            <!-- TikTok -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="platform-icon">🎵</div>
+                    <h2 class="card-title">TikTok</h2>
+                </div>
+                <div class="card-content">
+                    <h3>Solusi untuk TikTok:</h3>
+                    <ul>
+                        <li>Rekam video dari tampilan HTML Anda</li>
+                        <li>Tambahkan narasi dan musik yang menarik</li>
+                        <li>Gunakan efek khusus "hologram" di TikTok</li>
+                        <li>Sertakan link di bio untuk versi interaktif</li>
+                    </ul>
+                    <p>Contoh caption: "Lihat banner hologram komunitas kami! Link di bio untuk versi interaktif ✨ #NyampahBersama #TeknologiHijau"</p>
+                </div>
+                <div class="card-footer">Gunakan format video pendek</div>
+            </div>
+            
+            <!-- Instagram -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="platform-icon">📸</div>
+                    <h2 class="card-title">Instagram</h2>
+                </div>
+                <div class="card-content">
+                    <h3>Solusi untuk Instagram:</h3>
+                    <ul>
+                        <li>Posting screenshot sebagai feed biasa</li>
+                        <li>Buat video singkat untuk Reels/Story</li>
+                        <li>Gunakan fitur "Link in Bio"</li>
+                        <li>Buat carousel dengan beberapa screenshot</li>
+                    </ul>
+                    <p>Contoh caption: "Banner hologram komunitas kita sudah live! Link di bio untuk pengalaman interaktif penuh 🌐💚 #PalembangHijau #DaurUlangKreatif"</p>
+                </div>
+                <div class="card-footer">Optimal untuk Reels dan Story</div>
+            </div>
+            
+            <!-- Facebook -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="platform-icon">👍</div>
+                    <h2 class="card-title">Facebook</h2>
+                </div>
+                <div class="card-content">
+                    <h3>Solusi untuk Facebook:</h3>
+                    <ul>
+                        <li>Posting sebagai link langsung</li>
+                        <li>Sematkan dalam postingan event</li>
+                        <li>Buat video presentasi singkat</li>
+                        <li>Gunakan fitur Facebook Pages</li>
+                    </ul>
+                    <p>Facebook mendukung lebih banyak format. Anda bisa: "Komunitas Nyampah Bersama Palembang meluncurkan banner hologram interaktif! Kunjungi link ini untuk pengalaman penuh: [link]"</p>
+                </div>
+                <div class="card-footer">Paling fleksibel</div>
+            </div>
+        </div>
+        
+        <div class="tips-section">
+            <h2 class="tips-title">Strategi Efektif untuk Media Sosial</h2>
+            
+            <div class="tip">
+                <div class="tip-number">1</div>
+                <div class="tip-content">
+                    <h4>Rekam sebagai Video</h4>
+                    <p>Gunakan screen recorder (OBS, Camtasia, atau fitur bawaan OS) untuk merekam tampilan HTML Anda. Edit video dengan menambahkan penjelasan, musik, dan teks overlay.</p>
+                </div>
+            </div>
+            
+            <div class="tip">
+                <div class="tip-number">2</div>
+                <div class="tip-content">
+                    <h4>Hosting Online</h4>
+                    <p>Upload HTML Anda ke layanan hosting gratis (GitHub Pages, Netlify, Vercel). Sertakan link ini di bio media sosial Anda dengan ajakan yang menarik.</p>
+                </div>
+            </div>
+            
+            <div class="tip">
+                <div class="tip-number">3</div>
+                <div class="tip-content">
+                    <h4>Buat GIF Animasi</h4>
+                    <p>Konversi animasi HTML menjadi GIF pendek menggunakan alat online. GIF ini bisa langsung diupload ke hampir semua platform media sosial.</p>
+                </div>
+            </div>
+            
+            <div class="tip">
+                <div class="tip-number">4</div>
+                <div class="tip-content">
+                    <h4>Posting Screenshot + Link</h4>
+                    <p>Ambil screenshot bagian paling menarik dari HTML Anda, posting sebagai gambar, dan sertakan link ke versi lengkap di kolom komentar atau bio.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="qr-section">
+            <h2 class="qr-title">Contoh Solusi: QR Code untuk Versi Interaktif</h2>
+            <p>Sertakan QR code di postingan media sosial yang mengarah ke versi interaktif HTML Anda</p>
+            
+            <div class="qr-container">
+                <div class="qr-placeholder">QR CODE<br>NYAMPAH BERSAMA</div>
+                <p>Scan untuk pengalaman hologram interaktif!</p>
+            </div>
+            
+            <p>Teknik ini bekerja baik untuk poster fisik maupun postingan digital di media sosial.</p>
+        </div>
+    </div>
+
+    <script>
+        // Animasi sederhana untuk kartu
+        const cards = document.querySelectorAll('.card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.boxShadow = '0 15px 30px rgba(0, 200, 255, 0.4)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.3)';
+            });
+        });
+        
+        // Efek teks bergerak
+        const title = document.querySelector('h1');
+        let hue = 0;
+        
+        setInterval(() => {
+            hue = (hue + 1) % 360;
+            title.style.background = `linear-gradient(to right, hsl(${hue}, 100%, 60%), hsl(${(hue + 60) % 360}, 100%, 60%))`;
+            title.style.webkitBackgroundClip = 'text';
+            title.style.backgroundClip = 'text';
+        }, 50);
+    </script>
+</body>
+</html>

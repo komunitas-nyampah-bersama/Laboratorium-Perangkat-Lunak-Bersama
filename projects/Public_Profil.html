@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhamad Oky Muhlisin - Profil Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #1abc9c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .eu-id {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-title {
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .focus-areas, .competencies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .focus-tag, .competency-tag {
+            background-color: #e1f5fe;
+            color: var(--dark);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .focus-tag:hover, .competency-tag:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .publication {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .publication:last-child {
+            border-bottom: none;
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+        
+        .publication-details {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+        
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: var(--light);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--dark);
+            transition: all 0.3s;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .contact-link:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .contact-link i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .digital-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .digital-link {
+            padding: 15px;
+            background: var(--light);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--dark);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .digital-link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .digital-link i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .profile-title {
+                font-size: 2rem;
+            }
+            
+            .digital-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="profile-title">Muhamad Oky Muhlisin</h1>
+            <p class="subtitle">Independent Researcher — Teknologi dan Inovasi</p>
+            <div class="eu-id">
+                <i class="fas fa-user-shield"></i> EU Login ID: n00jcciv
+            </div>
+            <p class="subtitle">Submitted via: Zenodo · EU OpenAIRE · HAL · OSF</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Judul Riset -->
+        <section class="card">
+            <h2 class="section-title"><i class="fas fa-book-open"></i> Judul Riset</h2>
+            <p>2BCycle Research Framework: Integrasi Ekonomi Perilaku dan Teknologi Terdesentralisasi</p>
+        </section>
+        
+        <!-- Ruang Lingkup Fokus -->
+        <section class="card">
+            <h2 class="section-title"><i class="fas fa-bullseye"></i> Ruang Lingkup Fokus</h2>
+            <div class="focus-areas">
+                <span class="focus-tag">Proof of Attention Value</span>
+                <span class="focus-tag">Ekonomi Perilaku dan Kepercayaan</span>
+                <span class="focus-tag">Teknologi Blockchain Sosial</span>
+                <span class="focus-tag">Desentralisasi Sistem Sosial Digital</span>
+                <span class="focus-tag">Model Peer-to-Peer Trust & Reward Framework</span>
+                <span class="focus-tag">Sistem Tokenisasi Aksi dan Memori KolektiF</span>
+            </div>
+        </section>
+        
+        <!-- Publikasi dan Penelitian -->
+        <section class="card">
+            <h2 class="section-title"><i class="fas fa-file-alt"></i> Publikasi dan Penelitian</h2>
+            <p>Seri publikasi terbaru dalam kerangka riset 2BCycle:</p>
+            
+            <div class="publication">
+                <div class="publication-title">Implementasi Proof of Attention Value dalam Ekosistem Digital Sosial</div>
+                <div class="publication-details">Muhlisin, M.O. (2024). Jurnal Teknologi dan Inovasi, 12(3), 45-62.</div>
+            </div>
+            
+            <div class="publication">
+                <div class="publication-title">Model Ekonomi Perilaku untuk Sistem Desentralisasi: Studi Kasus Nyampah Bersama</div>
+                <div class="publication-details">Muhlisin, M.O. (2023). Dalam Prosiding Konferensi Nasional Teknologi Blockchain, Jakarta, Indonesia.</div>
+            </div>
+            
+            <div class="publication">
+                <div class="publication-title">Trust Mechanism in Decentralized Social Applications</div>
+                <div class="publication-details">Muhlisin, M.O. & Pratama, A. (2023). International Journal of Blockchain Innovation, 5(2), 78-95.</div>
+            </div>
+        </section>
+        
+        <!-- Keahlian & Kompetensi -->
+        <section class="card">
+            <h2 class="section-title"><i class="fas fa-laptop-code"></i> Keahlian & Kompetensi</h2>
+            <div class="competencies">
+                <span class="competency-tag">Sistem Desentralisasi & Blockchain</span>
+                <span class="competency-tag">Pengembangan Framework Aplikasi Sosial</span>
+                <span class="competency-tag">Analisis Ekonomi Perilaku Digital</span>
+                <span class="competency-tag">Tokenisasi Sistem Sosial</span>
+                <span class="competency-tag">Desain Mekanisme Insentif</span>
+            </div>
+        </section>
+        
+        <!-- Kontak Profesional -->
+        <section class="card">
+            <h2 class="section-title"><i class="fas fa-address-book"></i> Kontak Profesional</h2>
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/oky-muhlisin/" class="contact-link" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn: linkedin.com/in/oky-muhlisin
+                </a>
+                
+                <a href="https://www.researchgate.net/profile/Muhamad-Oky-Muhlisin" class="contact-link" target="_blank">
+                    <i class="fab fa-researchgate"></i> ResearchGate: researchgate.net/profile/Muhamad-Oky-Muhlisin
+                </a>
+                
+                <a href="https://github.com/okymuhlisin" class="contact-link" target="_blank">
+                    <i class="fab fa-github"></i> GitHub: github.com/okymuhlisin
+                </a>
+            </div>
+        </section>
+        
+        <!-- Tautan Tulisan & Publikasi Digital -->
+        <section class="card">
+            <h2 class="section-title"><i class="fas fa-link"></i> Tautan Tulisan & Publikasi Digital</h2>
+            <div class="contact-links">
+                <a href="https://linktr.ee/MuhamadOkyMuhlisin" class="contact-link" target="_blank">
+                    <i class="fas fa-tree"></i> Linktree: linktr.ee/MuhamadOkyMuhlisin
+                </a>
+            </div>
+            
+            <div class="digital-links">
+                <a href="https://github.com/enterprises/komunitas-nyampah-bersama" class="digital-link" target="_blank">
+                    <i class="fab fa-github"></i> GitHub: komunitas-nyampah-bersama
+                </a>
+                
+                <a href="https://zenodo.org/communities/nyampahbersama" class="digital-link" target="_blank">
+                    <i class="fas fa-archive"></i> Zenodo: nyampahbersama community
+                </a>
+                
+                <a href="https://zenodo.org/authors/muhamad-oky-muhlisin" class="digital-link" target="_blank">
+                    <i class="fas fa-user"></i> Zenodo: muhamad-oky-muhlisin
+                </a>
+                
+                <a href="https://hal.science/search/index/?q=Muhamad+Oky+Muhlisin" class="digital-link" target="_blank">
+                    <i class="fas fa-book"></i> HAL Archives
+                </a>
+                
+                <a href="https://osf.io/preprints/search?q=Muhamad%20Oky%20Muhlisin" class="digital-link" target="_blank">
+                    <i class="fas fa-file"></i> OSF Preprints
+                </a>
+                
+                <a href="https://explore.openaire.eu/search/find?authorName=Muhamad%20Oky%20Muhlisin" class="digital-link" target="_blank">
+                    <i class="fas fa-search"></i> EU OpenAIRE
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Muhamad Oky Muhlisin | Profesional Profile</p>
+        <p>Affiliation: Independent Researcher — Teknologi dan Inovasi</p>
+    </footer>
+
+    <script>
+        // Animasi sederhana saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 200 * index);
+            });
+        });
+    </script>
+</body>
+</html>

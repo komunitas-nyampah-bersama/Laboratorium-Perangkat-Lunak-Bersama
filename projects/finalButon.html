@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Template Komunitas Nyampah Bersama</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0; padding: 0;
+      background: #f5f7fa; color: #333;
+    }
+
+    header {
+      background: #18b875;
+      padding: 16px;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      background: #ddd;
+      padding: 10px;
+    }
+
+    .nav button {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .nav button:hover {
+      background: #18b875;
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    section {
+      background: white;
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #18b875;
+      margin-top: 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 8px;
+      display: none;
+      margin-top: 10px;
+    }
+
+    /* Modal */
+    #modal {
+      display: none;
+      position: fixed;
+      top: 10%; left: 10%;
+      width: 80%; height: 80%;
+      background: #fff;
+      box-shadow: 0 0 10px #0008;
+      padding: 20px;
+      overflow: auto;
+      z-index: 1000;
+      border-radius: 10px;
+    }
+
+    #modal button {
+      float: right;
+      background: #e94353;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>🌍 Template Komunitas Nyampah Bersama</header>
+
+  <div class="nav">
+    <button data-tab="surat">📄 Surat</button>
+    <button data-tab="jurnal">📘 Jurnal</button>
+    <button data-tab="profil">👤 Profil</button>
+    <button data-tab="legal">📑 Legalitas</button>
+    <button data-tab="tools">🛠️ Tools</button>
+  </div>
+
+  <!-- TAB SURAT -->
+  <div id="surat" class="tab-content active">
+    <section>
+      <h2>📄 Surat Resmi</h2>
+      <p>Template surat menyurat resmi organisasi.</p>
+      <ul>
+        <li><button onclick="openModal('Surat Permohonan', 'Isi contoh surat permohonan di sini...')">Surat Permohonan</button></li>
+        <li><button onclick="openModal('Surat Keterangan', 'Isi contoh surat keterangan...')">Surat Keterangan</button></li>
+        <li><button onclick="openModal('Surat Tugas', 'Isi surat tugas untuk anggota...')">Surat Tugas</button></li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- TAB JURNAL -->
+  <div id="jurnal" class="tab-content">
+    <section>
+      <h2>📘 Publikasi Ilmiah & Jurnal</h2>
+      <p>Daftar dan template publikasi komunitas berbasis penelitian dan aksi nyata.</p>
+      <button onclick="openModal('Unggah Jurnal', 'Fitur unggah jurnal dalam pengembangan.')">Unggah Jurnal</button>
+    </section>
+  </div>
+
+  <!-- TAB PROFIL -->
+  <div id="profil" class="tab-content">
+    <section>
+      <h2>👤 Profil Komunitas</h2>
+      <label>Nama Komunitas:</label><br>
+      <input type="text" placeholder="Contoh: Nyampah Bersama"><br><br>
+      <label>Alamat:</label><br>
+      <input type="text" placeholder="Jl. Talang Keramat..."><br>
+    </section>
+  </div>
+
+  <!-- TAB LEGAL -->
+  <div id="legal" class="tab-content">
+    <section>
+      <h2>📑 Legalitas & Registrasi</h2>
+      <ul>
+        <li>NPWP</li>
+        <li>SK Organisasi</li>
+        <li>Surat Domisili</li>
+        <li>ORCID/DOAJ/Zenodo ID</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- TAB TOOLS -->
+  <div id="tools" class="tab-content">
+    <section>
+      <h2>🛠️ Tools & Pendukung</h2>
+      <p>Akses alat bantu profesional:</p>
+      <ul>
+        <li><button onclick="loadTool('https://notion.site/editor')">Editor Notion</button></li>
+        <li><button onclick="loadTool('https://github.com/publisher')">Publisher GitHub</button></li>
+        <li><button onclick="loadTool('https://scalar.community/')">Scalar Komunitas</button></li>
+      </ul>
+      <iframe id="embed-frame"></iframe>
+    </section>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal">
+    <button onclick="closeModal()">❌ Tutup</button>
+    <div id="modal-content"></div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    document.querySelectorAll('.nav button').forEach(button => {
+      button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        document.getElementById('embed-frame').style.display = 'none'; // hide iframe when ganti tab
+      });
+    });
+
+    function loadTool(url) {
+      const frame = document.getElementById("embed-frame");
+      frame.src = url;
+      frame.style.display = 'block';
+    }
+
+    function openModal(title, content) {
+      document.getElementById("modal-content").innerHTML = `<h2>${title}</h2><p>${content}</p>`;
+      document.getElementById("modal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
