@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Panduan Lengkap Membuat Konten Viral">
+    <meta property="og:description" content="Pelajari strategi membuat konten yang menarik perhatian dan mudah dibagikan di media sosial">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80">
+    <meta property="og:url" content="https://example.com/panduan-konten-viral">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Panduan Lengkap Membuat Konten Viral">
+    <meta name="twitter:description" content="Pelajari strategi membuat konten yang menarik perhatian dan mudah dibagikan di media sosial">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80">
+    
+    <title>Panduan Lengkap Membuat Konten Viral - Siap Dibagikan!</title>
+    
+    <!-- Menggunakan CDN untuk performa optimal -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            opacity: 0.1;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+        
+        .card-header {
+            background: linear-gradient(to right, var(--accent), var(--success));
+            color: white;
+            padding: 20px 25px;
+            font-weight: 600;
+            font-size: 1.4rem;
+        }
+        
+        .card-body {
+            padding: 30px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-height: 450px;
+            object-fit: cover;
+        }
+        
+        .content-section {
+            margin: 40px 0;
+        }
+        
+        .content-section h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+        }
+        
+        .social-share {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin: 40px 0;
+        }
+        
+        .share-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1.1rem;
+            color: white;
+            min-width: 220px;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+        
+        .share-btn i {
+            font-size: 1.4rem;
+        }
+        
+        .facebook {
+            background: linear-gradient(to right, #3b5998, #4a69a5);
+        }
+        
+        .twitter {
+            background: linear-gradient(to right, #1da1f2, #1a91da);
+        }
+        
+        .whatsapp {
+            background: linear-gradient(to right, #25d366, #128c7e);
+        }
+        
+        .linkedin {
+            background: linear-gradient(to right, #0077b5, #00669c);
+        }
+        
+        .copy-link {
+            background: linear-gradient(to right, #6c757d, #5a6268);
+            margin-top: 15px;
+            width: 100%;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .tip-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .tip-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .tip-card h3 {
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #6c757d;
+            font-size: 1rem;
+            margin-top: 60px;
+        }
+        
+        .share-count {
+            background: var(--light);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 15px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .share-count strong {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.3rem;
+            }
+            
+            .header p {
+                font-size: 1.1rem;
+            }
+            
+            .share-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .share-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>Panduan Lengkap Membuat Konten Viral</h1>
+            <p>Pelajari strategi membuat konten yang menarik perhatian dan mudah dibagikan di media sosial</p>
+            <div class="share-count">Sudah dibagikan <strong>2,450</strong> kali</div>
+        </div>
+    </div>
+    
+    <div class="container">
+<!-- Konten Pintar Harian -->
+<div class="card mt-4 mb-4">
+  <div class="card-header">
+    <i class="fas fa-calendar-day me-2"></i> Konten Pintar Hari Ini
+  </div>
+  <div class="card-body">
+    <h2 id="sapaanHarian" class="mb-3 text-primary">Selamat Datang</h2>
+    <h3 id="judulHarian" class="mb-4">Judul Harian Muncul Di Sini</h3>
+    <img id="gambarHarian" class="featured-image" src="" alt="Gambar Harian" />
+  </div>
+</div>
+
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-crown me-2"></i>Konten Premium
+            </div>
+            <div class="card-body">
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80" alt="Strategi Konten Viral" class="featured-image">
+                
+                <div class="content-section">
+                    <h2>Rahasia Konten yang Mudah Dibagikan</h2>
+                    <p>Membuat konten yang viral bukanlah hal yang kebetulan. Ada formula khusus yang bisa Anda ikuti untuk meningkatkan kemungkinan konten Anda dibagikan ribuan kali di media sosial.</p>
+                    
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <h3>Ide yang Menarik</h3>
+                            <p>Konten harus dimulai dengan ide yang unik dan menarik. Buatlah audiens Anda terkesan sejak awal.</p>
+                        </div>
+                        
+                        <div class="tip-card">
+                            <i class="fas fa-heart"></i>
+                            <h3>Sentuh Emosi</h3>
+                            <p>Konten yang menyentuh emosi (senang, sedih, terkejut) memiliki kemungkinan lebih besar untuk dibagikan.</p>
+                        </div>
+                        
+                        <div class="tip-card">
+                            <i class="fas fa-image"></i>
+                            <h3>Visual Menarik</h3>
+                            <p>Gunakan gambar atau video berkualitas tinggi yang menarik perhatian dalam 3 detik pertama.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h2>Teknik Membuat Judul yang Klikable</h2>
+                    <p>Judul adalah gerbang pertama konten Anda. Tanpa judul yang menarik, konten terbaik sekalipun tidak akan dibuka apalagi dibagikan.</p>
+                    
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h3>Formula Judul Sukses</h3>
+                            <ul class="mt-3">
+                                <li class="mb-2"><strong>Angka ajaib:</strong> "7 Rahasia..." atau "10 Cara..."</li>
+                                <li class="mb-2"><strong>Pertanyaan:</strong> "Apakah Anda Membuat Kesalahan Ini?"</li>
+                                <li class="mb-2"><strong>Janji solusi:</strong> "Cara Mudah Meningkatkan..."</li>
+                                <li><strong>Rasa ingin tahu:</strong> "Apa yang Dilakukan Orang Sukses Setiap Pagi?"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h2>Optimasi untuk Media Sosial</h2>
+                    <p>Setiap platform media sosial memiliki karakteristik berbeda. Berikut penyesuaian yang perlu dilakukan:</p>
+                    
+                    <div class="table-responsive mt-4">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Platform</th>
+                                    <th>Format Terbaik</th>
+                                    <th>Waktu Posting Ideal</th>
+                                    <th>Panjang Konten</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Facebook</td>
+                                    <td>Video & Carousel</td>
+                                    <td>13:00 - 16:00</td>
+                                    <td>150-250 kata</td>
+                                </tr>
+                                <tr>
+                                    <td>Instagram</td>
+                                    <td>Reels & Gambar Kualitas Tinggi</td>
+                                    <td>11:00 - 13:00</td>
+                                    <td>Singkat + Emoji</td>
+                                </tr>
+                                <tr>
+                                    <td>Twitter</td>
+                                    <td>Thread</td>
+                                    <td>12:00 - 15:00</td>
+                                    <td>240-280 karakter</td>
+                                </tr>
+                                <tr>
+                                    <td>LinkedIn</td>
+                                    <td>Artikel Panjang</td>
+                                    <td>08:00 - 10:00</td>
+                                    <td>1500-3000 kata</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="social-share">
+            <h3 class="share-title">Bagikan Konten Ini!</h3>
+            <p class="mb-4">Bantu sebarkan pengetahuan ini ke jaringan Anda</p>
+            
+            <div class="share-buttons">
+                <button class="share-btn facebook" id="shareFB">
+                    <i class="fab fa-facebook-f"></i>
+                    Bagikan ke Facebook
+                </button>
+                
+                <button class="share-btn twitter" id="shareTW">
+                    <i class="fab fa-twitter"></i>
+                    Bagikan ke Twitter
+                </button>
+                
+                <button class="share-btn whatsapp" id="shareWA">
+                    <i class="fab fa-whatsapp"></i>
+                    Bagikan ke WhatsApp
+                </button>
+                
+                <button class="share-btn linkedin" id="shareLI">
+                    <i class="fab fa-linkedin-in"></i>
+                    Bagikan ke LinkedIn
+                </button>
+            </div>
+            
+            <button class="share-btn copy-link" id="copyLink">
+                <i class="fas fa-link"></i>
+                Salin Tautan
+            </button>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2023 Master Konten Digital. Hak Cipta Dilindungi. | Dibuat dengan ❤️ untuk kreator konten</p>
+    </div>
+    
+    <!-- Menggunakan CDN untuk library JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Fungsi untuk sharing ke media sosial
+        document.getElementById('shareFB').addEventListener('click', function() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        });
+        
+        document.getElementById('shareTW').addEventListener('click', function() {
+            const text = encodeURIComponent(document.title);
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+        });
+        
+        document.getElementById('shareWA').addEventListener('click', function() {
+            const text = encodeURIComponent(`${document.title} - ${window.location.href}`);
+            window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+        });
+        
+        document.getElementById('shareLI').addEventListener('click', function() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+        });
+        
+        // Fungsi untuk copy link
+        document.getElementById('copyLink').addEventListener('click', function() {
+            const tempInput = document.createElement('input');
+            tempInput.value = window.location.href;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            
+            // Ubah teks tombol sementara
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-check"></i> Tautan Tersalin!';
+            this.style.background = 'linear-gradient(to right, #28a745, #218838)';
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.background = 'linear-gradient(to right, #6c757d, #5a6268)';
+            }, 2000);
+        });
+        
+        // Animasi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.tip-card, .card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 100);
+            });
+        });
+    </script>
+
+<script>
+  const kontenMingguan = {
+    0: {
+      sapaan: "Minggu Produktif",
+      judul: "Refleksi & Rencana: Perjalanan 2BCycle",
+      gambar: "https://source.unsplash.com/featured/?reflection"
+    },
+    1: {
+      sapaan: "Senin Semangat 💚",
+      judul: "Apa itu 2BCycle & PoAV?",
+      gambar: "https://source.unsplash.com/featured/?recycle"
+    },
+    2: {
+      sapaan: "Selasa Aksi",
+      judul: "Cara Reward Token dari Pilah Sampah",
+      gambar: "https://source.unsplash.com/featured/?token"
+    },
+    3: {
+      sapaan: "Rabu Berdaya",
+      judul: "NFT Edukasi untuk Komunitas",
+      gambar: "https://source.unsplash.com/featured/?nft"
+    },
+    4: {
+      sapaan: "Kamis Kolaborasi",
+      judul: "Gabung Program CSR & Grant Internasional",
+      gambar: "https://source.unsplash.com/featured/?teamwork"
+    },
+    5: {
+      sapaan: "Jumat Reward Day",
+      judul: "Leaderboard & Token Weekly Drop 🎁",
+      gambar: "https://source.unsplash.com/featured/?trophy"
+    },
+    6: {
+      sapaan: "Sabtu Eksperimen 🔬",
+      judul: "Uji Coba Mini Game Ekonomi Sampah",
+      gambar: "https://source.unsplash.com/featured/?experiment"
+    }
+  };
+
+  const hariIni = new Date().getDay();
+  const kontenHariIni = kontenMingguan[hariIni];
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('judulHarian').textContent = kontenHariIni.judul;
+    document.getElementById('sapaanHarian').textContent = kontenHariIni.sapaan;
+    document.getElementById('gambarHarian').src = kontenHariIni.gambar;
+  });
+</script>
+
+</body>
+</html>
