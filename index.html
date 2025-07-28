@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NyampahBersama - Inovasi Komunitas</title>
+  <meta name="description" content="Jelajahi proyek inovatif dari komunitas NyampahBersama di bidang NFT, Web3, AI, dan lainnya. Temukan portofolio, edukasi, dan cara bergabung.">
+  <meta name="keywords" content="NyampahBersama, NFT, Blockchain, Web3, AI, Komunitas, Portofolio, Edukasi, GitHub Pages, HTML, CSS, JavaScript">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef3f7; /* Light background */
+      color: #333;
+      line-height: 1.6;
+      padding-bottom: 80px; /* Space for fixed footer */
+    }
+    .container {
+      max-width: 960px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    /* Header */
+    header {
+      background: #18b875; /* Primary green */
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 0.9em;
+      opacity: 0.9;
+    }
+
+    /* Navigation */
+    nav {
+      background: #2c3e50; /* Dark blue for nav */
+      text-align: center;
+      padding: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      border-bottom: 2px solid #18b875;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+      margin: 0 5px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #18b875; /* Primary green on hover */
+    }
+
+    /* Sections */
+    section {
+      background: white;
+      padding: 30px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    section h2 {
+      color: #18b875; /* Primary green for titles */
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.8em;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    /* About Section */
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center; /* Center text on smaller screens */
+    }
+    .about-content img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #18b875;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .about-text {
+      flex: 1;
+      min-width: 280px; /* Ensures text wraps nicely */
+      text-align: left; /* Default text alignment */
+    }
+    @media (max-width: 600px) {
+      .about-text {
+        text-align: center; /* Center text on small screens */
+      }
+    }
+
+
+    /* Project Explorer Section (re-styling your original code) */
+    .category {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .category button {
+      padding: 10px;
+      border: none;
+      background: #2242c7; /* Darker blue for buttons */
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.95em;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .category button:hover {
+      background-color: #1a33a8;
+      transform: translateY(-2px);
+    }
+    .project-list {
+      display: grid; /* Use grid for better layout */
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #f9f9f9; /* Lighter card background */
+      padding: 18px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      border: 1px solid #eee;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      color: #2242c7; /* Darker blue for card titles */
+      font-size: 1.2em;
+    }
+    .card p {
+      font-size: 0.9em;
+      margin: 6px 0 15px;
+      color: #666;
+    }
+    .card a {
+      background: #18b875; /* Primary green for links */
+      color: white;
+      padding: 8px 12px;
+      font-size: 0.85em;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .card a:hover {
+      background-color: #139f60;
+    }
+
+    /* Edu & Blog & Community Sections */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      text-align: center;
+      border: 1px solid #eee;
+    }
+    .feature-card h3 {
+      color: #2c3e50;
+      margin-top: 0;
+      font-size: 1.3em;
+    }
+    .feature-card p {
+      font-size: 0.9em;
+      color: #555;
+    }
+    .feature-card .btn {
+      display: inline-block;
+      margin-top: 15px;
+      background: #2242c7;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .feature-card .btn:hover {
+      background-color: #1a33a8;
+    }
+
+    /* Footer */
+    footer {
+      background: #2c3e50; /* Dark blue */
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+      font-size: 0.85em;
+    }
+
+    /* Utility Classes */
+    .text-center { text-align: center; }
+    .mb-30 { margin-bottom: 30px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>NyampahBersama Inovasi</h1>
+    <p>Membangun Masa Depan Terdesentralisasi Bersama Komunitas</p>
+  </header>
+
+  <nav>
+    <a href="#about">Tentang Kami</a>
+    <a href="#projects">Proyek Kami</a>
+    <a href="#education">Edukasi & Tutorial</a>
+    <a href="#blog">Blog Komunitas</a>
+    <a href="#community">Bergabung</a>
+  </nav>
+
+  <div class="container">
+
+    <section id="about">
+      <h2>👋 Selamat Datang di NyampahBersama!</h2>
+      <div class="about-content">
+        <img src="https://via.placeholder.com/120/18b875/FFFFFF?text=NB" alt="Logo NyampahBersama">
+        <div class="about-text">
+          <p>Kami adalah komunitas inovator yang bersemangat dalam eksplorasi teknologi terdesentralisasi dan kecerdasan buatan. Melalui proyek-proyek open-source kami, kami bertujuan untuk menciptakan solusi yang relevan dan bermanfaat bagi ekosistem digital.</p>
+          <p>Di sini Anda akan menemukan berbagai eksperimen dan aplikasi yang kami kembangkan, mulai dari implementasi NFT, dompet pintar, hingga asisten AI, semuanya dengan semangat kolaborasi dan transparansi.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>✨ Jelajahi Proyek Komunitas</h2>
+      <p class="text-center desc">Filter proyek berdasarkan kategori atau tampilkan semuanya.</p>
+
+      <div class="category">
+        <button onclick="showProjects('Semua')">📦 Semua</button>
+        <button onclick="showProjects('NFT')">🖼️ NFT</button>
+        <button onclick="showProjects('Wallet')">💳 Wallet</button>
+        <button onclick="showProjects('AI')">🤖 AI</button>
+        <button onclick="showProjects('Blog')">📰 Blog</button>
+        <button onclick="showProjects('Landing')">🌍 Landing Page</button>
+        <button onclick="showProjects('Smart Contract')">📄 Smart Contract</button>
+        <button onclick="showProjects('UI/UX')">🎨 UI/UX Mockup</button>
+      </div>
+
+      <div class="project-list" id="projectList">
+        </div>
+    </section>
+
+    <section id="education">
+      <h2>💡 Edukasi & Tutorial</h2>
+      <p class="text-center desc">Pelajari dasar-dasar teknologi terbaru melalui tutorial interaktif dan panduan kami.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Dasar-dasar NFT</h3>
+          <p>Pahami apa itu NFT, bagaimana cara kerjanya, dan bagaimana Anda bisa memanfaatkannya.</p>
+          <a href="pages/edukasi_nft.html" class="btn">Pelajari Lebih Lanjut</a>
+        </div>
+        <div class="feature-card">
+          <h3>Membuat Dompet Web3</h3>
+          <p>Panduan langkah demi langkah untuk mengatur dompet kripto Anda dengan aman.</p>
+          <a href="pages/edukasi_wallet.html" class="btn">Mulai Sekarang</a>
+        </div>
+        <div class="feature-card">
+          <h3>Pengenalan AI Sederhana</h3>
+          <p>Eksplorasi konsep dasar kecerdasan buatan dan aplikasinya.</p>
+          <a href="pages/edukasi_ai.html" class="btn">Lihat Tutorial</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog">
+      <h2>📰 Blog Komunitas</h2>
+      <p class="text-center desc">Baca artikel terbaru kami tentang inovasi, perkembangan komunitas, dan wawasan teknis.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Masa Depan Identitas Digital dengan NFT</h3>
+          <p>Bagaimana NFT mengubah cara kita memandang identitas online.</p>
+          <a href="pages/artikel_nft_identitas.html" class="btn">Baca Artikel</a>
+        </div>
+        <div class="feature-card">
+          <h3>Studi Kasus: Dompet Cerdas untuk DAO</h3>
+          <p>Analisis implementasi dompet cerdas dalam organisasi otonom terdesentralisasi.</p>
+          <a href="pages/artikel_dao_wallet.html" class="btn">Baca Artikel</a>
+        </div>
+        <div class="feature-card">
+          <h3>Memanfaatkan AI untuk Optimasi Konten</h3>
+          <p>Tips dan trik menggunakan AI untuk meningkatkan kualitas konten digital Anda.</p>
+          <a href="pages/artikel_ai_konten.html" class="btn">Baca Artikel</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="community">
+      <h2>🤝 Bergabung dengan Komunitas Kami!</h2>
+      <p class="text-center desc">Kami selalu terbuka untuk kolaborasi dan ide-ide baru. Mari berkontribusi bersama!</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Kontribusi di GitHub</h3>
+          <p>Lihat repositori kami dan mulai berkontribusi pada proyek-proyek open-source.</p>
+          <a href="https://github.com/komunitasnyampah" target="_blank" class="btn">Kunjungi GitHub</a>
+        </div>
+        <div class="feature-card">
+          <h3>Diskusi di Forum/Discord</h3>
+          <p>Bergabunglah dalam diskusi aktif dan jalin koneksi dengan sesama inovator.</p>
+          <a href="pages/bergabung.html" class="btn">Ayo Bergabung</a>
+        </div>
+        <div class="feature-card">
+          <h3>Ajukan Proyek Baru</h3>
+          <p>Punya ide brilian? Mari wujudkan bersama dalam komunitas kami.</p>
+          <a href="pages/ajukan_proyek.html" class="btn">Ajukan Ide</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 NyampahBersama Komunitas Inovasi. Dibuat dengan semangat open-source.</p>
+  </footer>
+
+  <script>
+    // Data Proyek Anda (lanjutan dari array 'projects' yang sudah ada)
+    // Sesuaikan 'link' ini agar mengarah ke file HTML Anda yang sudah di-host di GitHub Pages.
+    // Contoh: Jika file 'super_modular.html' ada di folder 'projects' di repo Anda, link-nya akan jadi './projects/super_modular.html'
+    const projects = [
+      { name: "Modular-NFT", category: "NFT", desc: "Sistem NFT modular untuk reward & identitas digital.", link: "super_modular.html" },
+      { name: "Dompet-Cerdas-Bersama", category: "Wallet", desc: "Dompet komunitas pintar berbasis BASE & Thirdweb.", link: "smartwallet.html" }, // Contoh dari smartwallet.html
+      { name: "ai-komunitas-bersama", category: "AI", desc: "Asisten AI komunitas untuk edukasi & interaksi.", link: "snackAI.html" }, // Contoh dari snackAI.html
+      { name: "NFT Blog Web3", category: "Blog", desc: "Blog Web3 rakyat. Bisa tokenisasi tulisan!", link: "nft_blog.html" },
+      { name: "Kartu Profesional Astro", category: "Landing", desc: "Kartu profesional komunitas berbasis Astro.js", link: "platformPoAV.html" }, // Contoh dari platformPoAV.html
+      { name: "Terminal AI Pintar", category: "AI", desc: "Antarmuka terminal dengan kemampuan AI.", link: "smart_terminal_ai.html" },
+      { name: "Uji Hierarki", category: "UI/UX", desc: "Eksperimen tata letak hierarki untuk UI.", link: "uji_hirarki.html" },
+      { name: "Nyamphbersama V.1", category: "Landing", desc: "Halaman landing page untuk ekosistem NyampahBersama.", link: "nyampahbersama_v1.html" },
+      { name: "Nexus Chain HTML", category: "Blockchain", desc: "Visualisasi dan informasi tentang Nexus Chain.", link: "Nexus_Chain.html" },
+      { name: "Sertifikat Karbon SOL", category: "Smart Contract", desc: "Smart contract Solana untuk sertifikat karbon.", link: "sertifikat_carbon.sol" },
+      { name: "Modul SOL", category: "Smart Contract", desc: "Modul smart contract dasar.", link: "modul.sol" },
+      { name: "Two Bcoin SOL", category: "Smart Contract", desc: "Smart contract untuk mata uang Bcoin.", link: "twoBcoin.sol" },
+      { name: "Landing Komunitas", category: "Landing", desc: "Halaman pendaratan khusus untuk komunitas.", link: "landing_page_komunitas.html" },
+      { name: "Login Bersama", category: "UI/UX", desc: "Desain halaman login dengan fitur sosial.", link: "login_bersama.html" },
+      { name: "Mint NFT", category: "NFT", desc: "Antarmuka untuk mencetak NFT.", link: "mint_nft.html" },
+      { name: "Passport HTML", category: "Web3", desc: "Implementasi paspor digital di web3.", link: "passporn.html" },
+      { name: "Penghitungan Karbon", category: "AI", desc: "Alat untuk menghitung jejak karbon dengan AI.", link: "penghitungan_carbon.html" },
+      { name: "Portal Nexus", category: "Blockchain", desc: "Gerbang utama ke ekosistem Nexus.", link: "portal_nexus.html" },
+      { name: "Viewer 2", category: "UI/UX", desc: "Antarmuka penampil dokumen atau media versi 2.", link: "viewer_2.html" },
+      { name: "Versi Lengkap", category: "Landing", desc: "Halaman utama dengan semua fitur lengkap.", link: "versi_lengkap.html" },
+      { name: "Website", category: "Landing", desc: "Desain website umum.", link: "website.html" },
+      { name: "ZK HTML", category: "Blockchain", desc: "Eksplorasi Zero-Knowledge Proofs di HTML.", link: "zk.html" },
+      { name: "Live Style", category: "UI/UX", desc: "Eksperimen gaya CSS interaktif.", link: "liveStyle.html" },
+      { name: "Smart Kontrak Nexus", category: "Smart Contract", desc: "Desain kontrak pintar untuk Nexus.", link: "smartkontraknexus.html" },
+      { name: "Snippet JSON", category: "AI", desc: "Alat untuk mengelola snippet JSON.", link: "snippet.json" },
+      { name: "Tentang Nyampah Bersama", category: "Landing", desc: "Detail tentang komunitas Nyampah Bersama.", link: "tentang_nyampahbersama.html" },
+      { name: "Upgrade HTML", category: "UI/UX", desc: "Halaman untuk simulasi proses upgrade.", link: "upgrade.html" },
+      { name: "Research Bersama", category: "Blog", desc: "Halaman untuk publikasi riset kolaboratif.", link: "Research_Bersama.html" },
+      { name: "Riset Komunitas", category: "Blog", desc: "Halaman riset mendalam oleh komunitas.", link: "Riset_Komunitas.html" },
+      { name: "Ruang Arsip", category: "Other", desc: "Halaman untuk arsip dan dokumentasi.", link: "ruangarsip.html" },
+      { name: "Scalar", category: "AI", desc: "Proyek yang berhubungan dengan skala atau performa AI.", link: "scalar.html" },
+      { name: "Sempurna HTML", category: "UI/UX", desc: "Desain halaman HTML yang sempurna dan bersih.", link: "sempurna.html" },
+      { name: "Show HTML", category: "Other", desc: "Halaman demo untuk menampilkan sesuatu.", link: "Show.html" },
+      { name: "Simulatur Mini", category: "AI", desc: "Simulator mini untuk berbagai skenario.", link: "simulatirmini.html" },
+      { name: "Smart HTML", category: "UI/UX", desc: "Halaman HTML dengan elemen interaktif pintar.", link: "smart.html" },
+      { name: "Snack HTML", category: "UI/UX", desc: "Desain antarmuka yang cepat dan responsif.", link: "snack.html" },
+      // Tambahkan lebih banyak proyek Anda di sini berdasarkan file yang Anda miliki!
+      // Pastikan untuk menyesuaikan `link` ke nama file HTML yang sesuai.
+      // Jika Anda membuat subfolder di GitHub (misalnya 'html-files/super_modular.html'),
+      // maka link-nya harus menjadi 'html-files/super_modular.html'.
+    ];
+
+    function showProjects(category) {
+      const container = document.getElementById("projectList");
+      container.innerHTML = '';
+      const filtered = category === "Semua" ? projects : projects.filter(p => p.category === category);
+
+      if (filtered.length === 0) {
+          container.innerHTML = '<p class="text-center" style="grid-column: 1 / -1; color: #555;">Tidak ada proyek dalam kategori ini.</p>';
+          return;
+      }
+
+      filtered.forEach(p => {
+        container.innerHTML += `
+          <div class="card">
+            <h3>${p.name}</h3>
+            <p>${p.desc}</p>
+            <a href="${p.link}" target="_blank">Lihat Proyek</a>
+          </div>
+        `;
+      });
+    }
+
+    // Tampilkan semua proyek saat halaman pertama kali dimuat
+    document.addEventListener('DOMContentLoaded', () => {
+      showProjects('Semua');
+    });
+
+    // Dummy links for "Edukasi", "Blog", and "Komunitas" sections
+    // You should create these HTML files in a 'pages' subfolder (e.g., pages/edukasi_nft.html)
+    // or link them to existing relevant files you have.
+  </script>
+
+</body>
+</html>
