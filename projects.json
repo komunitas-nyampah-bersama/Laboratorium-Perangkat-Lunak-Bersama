@@ -1,0 +1,680 @@
+[
+  {
+    "name": "Modular-NFT",
+    "category": "NFT",
+    "desc": "Sistem NFT modular untuk reward & identitas digital.",
+    "link": "projects/super_modular.html"
+  },
+  {
+    "name": "Dompet-Cerdas-Bersama",
+    "category": "Wallet",
+    "desc": "Dompet komunitas pintar berbasis BASE & Thirdweb.",
+    "link": "projects/smartwallet.html"
+  },
+  {
+    "name": "ai-komunitas-bersama",
+    "category": "AI",
+    "desc": "Asisten AI komunitas untuk edukasi & interaksi.",
+    "link": "projects/snackAI.html"
+  },
+  {
+    "name": "NFT Blog Web3",
+    "category": "Blog",
+    "desc": "Blog Web3 rakyat. Bisa tokenisasi tulisan!",
+    "link": "projects/nft_blog.html"
+  },
+  {
+    "name": "Kartu Profesional Astro",
+    "category": "Landing",
+    "desc": "Kartu profesional komunitas berbasis Astro.js",
+    "link": "projects/platformPoAV.html"
+  },
+  {
+    "name": "Terminal AI Pintar",
+    "category": "AI",
+    "desc": "Antarmuka terminal dengan kemampuan AI.",
+    "link": "projects/smart_terminal_ai.html"
+  },
+  {
+    "name": "Uji Hierarki",
+    "category": "UI/UX",
+    "desc": "Eksperimen tata letak hierarki untuk UI.",
+    "link": "projects/uji_hirarki.html"
+  },
+  {
+    "name": "Nyamphbersama V.1",
+    "category": "Landing",
+    "desc": "Halaman landing page untuk ekosistem NyampahBersama.",
+    "link": "projects/nyampahbersama_v1.html"
+  },
+  {
+    "name": "Nexus Chain HTML",
+    "category": "Blockchain",
+    "desc": "Visualisasi dan informasi tentang Nexus Chain.",
+    "link": "projects/Nexus_Chain.html"
+  },
+  {
+    "name": "Sertifikat Karbon SOL",
+    "category": "Smart Contract",
+    "desc": "Smart contract Solana untuk sertifikat karbon.",
+    "link": "projects/sertifikat_carbon.sol"
+  },
+  {
+    "name": "Modul SOL",
+    "category": "Smart Contract",
+    "desc": "Modul smart contract dasar.",
+    "link": "projects/modul.sol"
+  },
+  {
+    "name": "Two Bcoin SOL",
+    "category": "Smart Contract",
+    "desc": "Smart contract untuk mata uang Bcoin.",
+    "link": "projects/twoBcoin.sol"
+  },
+  {
+    "name": "Landing Komunitas",
+    "category": "Landing",
+    "desc": "Halaman pendaratan khusus untuk komunitas.",
+    "link": "projects/landing_page_komunitas.html"
+  },
+  {
+    "name": "Login Bersama",
+    "category": "UI/UX",
+    "desc": "Desain halaman login dengan fitur sosial.",
+    "link": "projects/login_bersama.html"
+  },
+  {
+    "name": "Mint NFT",
+    "category": "NFT",
+    "desc": "Antarmuka untuk mencetak NFT.",
+    "link": "projects/mint_nft.html"
+  },
+  {
+    "name": "Passport HTML",
+    "category": "Web3",
+    "desc": "Implementasi paspor digital di web3.",
+    "link": "projects/passporn.html"
+  },
+  {
+    "name": "Penghitungan Karbon",
+    "category": "AI",
+    "desc": "Alat untuk menghitung jejak karbon dengan AI.",
+    "link": "projects/penghitungan_carbon.html"
+  },
+  {
+    "name": "Portal Nexus",
+    "category": "Blockchain",
+    "desc": "Gerbang utama ke ekosistem Nexus.",
+    "link": "projects/portal_nexus.html"
+  },
+  {
+    "name": "Viewer 2",
+    "category": "UI/UX",
+    "desc": "Antarmuka penampil dokumen atau media versi 2.",
+    "link": "projects/viewer_2.html"
+  },
+  {
+    "name": "Versi Lengkap",
+    "category": "Landing",
+    "desc": "Halaman utama dengan semua fitur lengkap.",
+    "link": "projects/versi_lengkap.html"
+  },
+  {
+    "name": "Website",
+    "category": "Landing",
+    "desc": "Desain website umum.",
+    "link": "projects/website.html"
+  },
+  {
+    "name": "ZK HTML",
+    "category": "Blockchain",
+    "desc": "Eksplorasi Zero-Knowledge Proofs di HTML.",
+    "link": "projects/zk.html"
+  },
+  {
+    "name": "Live Style",
+    "category": "UI/UX",
+    "desc": "Eksperimen gaya CSS interaktif.",
+    "link": "projects/liveStyle.html"
+  },
+  {
+    "name": "Smart Kontrak Nexus",
+    "category": "Smart Contract",
+    "desc": "Desain kontrak pintar untuk Nexus.",
+    "link": "projects/smartkontraknexus.html"
+  },
+  {
+    "name": "Snippet JSON",
+    "category": "AI",
+    "desc": "Alat untuk mengelola snippet JSON.",
+    "link": "projects/snippet.json"
+  },
+  {
+    "name": "Tentang Nyampah Bersama",
+    "category": "Landing",
+    "desc": "Detail tentang komunitas Nyampah Bersama.",
+    "link": "projects/tentang_nyampahbersama.html"
+  },
+  {
+    "name": "Upgrade HTML",
+    "category": "UI/UX",
+    "desc": "Halaman untuk simulasi proses upgrade.",
+    "link": "projects/upgrade.html"
+  },
+  {
+    "name": "Research Bersama",
+    "category": "Blog",
+    "desc": "Halaman untuk publikasi riset kolaboratif.",
+    "link": "projects/Research_Bersama.html"
+  },
+  {
+    "name": "Riset Komunitas",
+    "category": "Blog",
+    "desc": "Halaman riset mendalam oleh komunitas.",
+    "link": "projects/Riset_Komunitas.html"
+  },
+  {
+    "name": "Ruang Arsip",
+    "category": "Other",
+    "desc": "Halaman untuk arsip dan dokumentasi.",
+    "link": "projects/ruangarsip.html"
+  },
+  {
+    "name": "Scalar",
+    "category": "AI",
+    "desc": "Proyek yang berhubungan dengan skala atau performa AI.",
+    "link": "projects/scalar.html"
+  },
+  {
+    "name": "Sempurna HTML",
+    "category": "UI/UX",
+    "desc": "Desain halaman HTML yang sempurna dan bersih.",
+    "link": "projects/sempurna.html"
+  },
+  {
+    "name": "Show HTML",
+    "category": "Other",
+    "desc": "Halaman demo untuk menampilkan sesuatu.",
+    "link": "projects/Show.html"
+  },
+  {
+    "name": "Simulatur Mini",
+    "category": "AI",
+    "desc": "Simulator mini untuk berbagai skenario.",
+    "link": "projects/simulatirmini.html"
+  },
+  {
+    "name": "Smart HTML",
+    "category": "UI/UX",
+    "desc": "Halaman HTML dengan elemen interaktif pintar.",
+    "link": "projects/smart.html"
+  },
+  {
+    "name": "Snack HTML",
+    "category": "UI/UX",
+    "desc": "Desain antarmuka yang cepat dan responsif.",
+    "link": "projects/snack.html"
+  },
+  {
+    "name": "AdArt",
+    "category": "NFT",
+    "desc": "Proyek seni generatif berbasis NFT.",
+    "link": "projects/AdArt.html"
+  },
+  {
+    "name": "Contents Community Share",
+    "category": "Blog",
+    "desc": "Platform berbagi konten komunitas.",
+    "link": "projects/Contents_community_share.html"
+  },
+  {
+    "name": "Gabung Tim Riset",
+    "category": "Community",
+    "desc": "Halaman pendaftaran untuk bergabung dengan tim riset.",
+    "link": "projects/Gabung_TimRiset.html"
+  },
+  {
+    "name": "Inovasi Digital",
+    "category": "Other",
+    "desc": "Halaman tentang berbagai inovasi digital.",
+    "link": "projects/Inovasi_Digital.html"
+  },
+  {
+    "name": "Login Page",
+    "category": "UI/UX",
+    "desc": "Desain halaman login sederhana.",
+    "link": "projects/Login.html"
+  },
+  {
+    "name": "NyampahBersama Landing Page NFT 3",
+    "category": "Landing",
+    "desc": "Landing page khusus untuk proyek NFT NyampahBersama.",
+    "link": "projects/NyampahBersama_LandingPageNFT 3.html"
+  },
+  {
+    "name": "Public Profil",
+    "category": "UI/UX",
+    "desc": "Halaman profil publik untuk anggota.",
+    "link": "projects/Public_Profil.html"
+  },
+  {
+    "name": "RistAll 2",
+    "category": "Other",
+    "desc": "Proyek riset dan data lainnya versi 2.",
+    "link": "projects/RistAll 2.html"
+  },
+  {
+    "name": "Akademi NyampahBersama",
+    "category": "Education",
+    "desc": "Materi dan kurikulum edukasi dari komunitas.",
+    "link": "projects/akademi.html"
+  },
+  {
+    "name": "Dashboard Research",
+    "category": "UI/UX",
+    "desc": "Dashboard untuk memvisualisasikan data riset.",
+    "link": "projects/dashboard_Research.html"
+  },
+  {
+    "name": "Dashboard 2BCycle with Login 2",
+    "category": "UI/UX",
+    "desc": "Dashboard untuk aplikasi 2BCycle dengan fitur login.",
+    "link": "projects/dashboard_2BCycle_with_Login 2.html"
+  },
+  {
+    "name": "Default HTML",
+    "category": "Other",
+    "desc": "Halaman HTML default atau template.",
+    "link": "projects/default.html"
+  },
+  {
+    "name": "Doc Web",
+    "category": "Documentation",
+    "desc": "Halaman untuk dokumentasi proyek web.",
+    "link": "projects/doc_web.html"
+  },
+  {
+    "name": "Ecounit Public",
+    "category": "Other",
+    "desc": "Proyek terkait lingkungan atau unit ekonomi.",
+    "link": "projects/ecopublic.html"
+  },
+  {
+    "name": "Final Button",
+    "category": "UI/UX",
+    "desc": "Desain eksperimen tombol final.",
+    "link": "projects/finalButon.html"
+  },
+  {
+    "name": "Hierarchy HTML",
+    "category": "UI/UX",
+    "desc": "Eksplorasi hierarki visual dalam desain web.",
+    "link": "projects/hirarcy.html"
+  },
+  {
+    "name": "Index 2",
+    "category": "Landing",
+    "desc": "Versi alternatif dari halaman indeks.",
+    "link": "projects/index 2.html"
+  },
+  {
+    "name": "Jurnal Lengkap with Login 2",
+    "category": "Blog",
+    "desc": "Sistem jurnal lengkap dengan fitur login.",
+    "link": "projects/jurnal_lengkap_with_login 2.html"
+  },
+  {
+    "name": "Kon HTML",
+    "category": "Other",
+    "desc": "Halaman konvergensi atau konfigurasi.",
+    "link": "projects/kon.html"
+  },
+  {
+    "name": "Konten Shared Daily",
+    "category": "Blog",
+    "desc": "Halaman untuk konten harian yang dibagikan.",
+    "link": "projects/konten_shared_daily.html"
+  },
+  {
+    "name": "Kop Surat",
+    "category": "Other",
+    "desc": "Desain untuk kop surat digital.",
+    "link": "projects/kop_surat.html"
+  },
+  {
+    "name": "Linktree",
+    "category": "Landing",
+    "desc": "Halaman linktree untuk semua tautan penting.",
+    "link": "projects/linktree.html"
+  },
+  {
+    "name": "Living Jurnal",
+    "category": "Blog",
+    "desc": "Jurnal pribadi atau komunitas.",
+    "link": "projects/living_jurnal.html"
+  },
+  {
+    "name": "Modul Edukasi",
+    "category": "Education",
+    "desc": "Modul-modul edukasi interaktif.",
+    "link": "projects/modul_edu.html"
+  },
+  {
+    "name": "Page Nyampah",
+    "category": "Landing",
+    "desc": "Halaman umum NyampahBersama.",
+    "link": "projects/pagenyampah.html"
+  },
+  {
+    "name": "Page Plastik",
+    "category": "Environmental",
+    "desc": "Halaman kampanye atau informasi tentang plastik.",
+    "link": "projects/pageplastik.html"
+  },
+  {
+    "name": "Pasrt",
+    "category": "Other",
+    "desc": "Deskripsi sementara: Halaman pasrt.",
+    "link": "projects/pasrt.html"
+  },
+  {
+    "name": "Portal",
+    "category": "Landing",
+    "desc": "Halaman portal umum.",
+    "link": "projects/portal.html"
+  },
+  {
+    "name": "Publisher Bersama",
+    "category": "Blog",
+    "desc": "Platform untuk penerbitan kolaboratif.",
+    "link": "projects/publisher_Bersama.html"
+  },
+  {
+    "name": "Strategi Hibah",
+    "category": "Other",
+    "desc": "Dokumen atau halaman tentang strategi hibah.",
+    "link": "projects/strategi_hibah.html"
+  },
+  {
+    "name": "Surat Template 2",
+    "category": "Other",
+    "desc": "Template surat versi 2.",
+    "link": "projects/surat_template 2.html"
+  },
+  {
+    "name": "Testimoni",
+    "category": "Other",
+    "desc": "Halaman untuk testimoni pengguna.",
+    "link": "projects/testimoni.html"
+  },
+  {
+    "name": "Konten Shared",
+    "category": "Blog",
+    "desc": "Konten yang dibagikan secara umum.",
+    "link": "projects/konten_shared.html"
+  },
+  {
+    "name": "Kunci HTML",
+    "category": "UI/UX",
+    "desc": "Desain halaman kunci atau otentikasi.",
+    "link": "projects/kunci.html"
+  },
+  {
+    "name": "Laah HTML",
+    "category": "Other",
+    "desc": "Deskripsi sementara: Halaman Laah.",
+    "link": "projects/laah.html"
+  },
+  {
+    "name": "Layar Putih",
+    "category": "UI/UX",
+    "desc": "Desain halaman dengan latar belakang putih bersih.",
+    "link": "projects/Layar_putih.html"
+  },
+  {
+    "name": "Layar CSS",
+    "category": "UI/UX",
+    "desc": "File CSS untuk desain layar.",
+    "link": "projects/layar.css"
+  },
+  {
+    "name": "Layar JS",
+    "category": "UI/UX",
+    "desc": "File JavaScript untuk fungsionalitas layar.",
+    "link": "projects/layar.js"
+  },
+  {
+    "name": "Lhi HTML",
+    "category": "Other",
+    "desc": "Deskripsi sementara: Halaman Lhi.",
+    "link": "projects/lhi.html"
+  },
+  {
+    "name": "Masuk HTML",
+    "category": "UI/UX",
+    "desc": "Halaman masuk atau login.",
+    "link": "projects/masuk.html"
+  },
+  {
+    "name": "Mobile HTML",
+    "category": "UI/UX",
+    "desc": "Desain responsif untuk tampilan mobile.",
+    "link": "projects/mobile.html"
+  },
+  {
+    "name": "N HTML",
+    "category": "Other",
+    "desc": "Deskripsi sementara: Halaman N.",
+    "link": "projects/n.html"
+  },
+  {
+    "name": "Nesface HTML",
+    "category": "Other",
+    "desc": "Deskripsi sementara: Halaman Nesface.",
+    "link": "projects/nesface.html"
+  },
+  {
+    "name": "Nexus Flow HTML",
+    "category": "Blockchain",
+    "desc": "Visualisasi alur kerja di Nexus Chain.",
+    "link": "projects/nexus_flow.html"
+  },
+  {
+    "name": "Nexus Genesis SOL",
+    "category": "Smart Contract",
+    "desc": "Smart contract genesis untuk Nexus Chain.",
+    "link": "projects/nexus_genesis.sol"
+  },
+  {
+    "name": "Nexus Marketplace SOL",
+    "category": "Smart Contract",
+    "desc": "Smart contract untuk marketplace Nexus.",
+    "link": "projects/nexus_marketplace.sol"
+  },
+  {
+    "name": "Nexus Web3 HTML",
+    "category": "Web3",
+    "desc": "Implementasi fitur Web3 untuk Nexus.",
+    "link": "projects/Nexus_web3.html"
+  },
+  {
+    "name": "Nexus HTML",
+    "category": "Blockchain",
+    "desc": "Halaman utama atau informasi tentang Nexus.",
+    "link": "projects/Nexus.html"
+  },
+  {
+    "name": "NexusBook HTML",
+    "category": "Web3",
+    "desc": "Platform buku atau konten di ekosistem Nexus.",
+    "link": "projects/NexusBook.html"
+  },
+  {
+    "name": "NFT IPFS Script JS",
+    "category": "NFT",
+    "desc": "Skrip JavaScript untuk interaksi NFT dan IPFS.",
+    "link": "projects/nft_ipfs_script.js"
+  },
+  {
+    "name": "NFT IPFS Style CSS",
+    "category": "NFT",
+    "desc": "File CSS untuk tampilan NFT dan IPFS.",
+    "link": "projects/nft_ipfs_style.css"
+  },
+  {
+    "name": "NFT IPFS HTML",
+    "category": "NFT",
+    "desc": "Halaman demo NFT dengan integrasi IPFS.",
+    "link": "projects/nft_ipfs.html"
+  },
+  {
+    "name": "NFT Warisan HTML",
+    "category": "NFT",
+    "desc": "Konsep NFT untuk warisan digital.",
+    "link": "projects/nft_warisan.html"
+  },
+  {
+    "name": "Ni9Nai HTML",
+    "category": "Other",
+    "desc": "Deskripsi sementara: Halaman Ni9Nai.",
+    "link": "projects/ni9nai.html"
+  },
+  {
+    "name": "Nolibrari HTML",
+    "category": "Other",
+    "desc": "Eksperimen tanpa menggunakan pustaka eksternal.",
+    "link": "projects/nolibrari.html"
+  },
+  {
+    "name": "Nolibrari 2 HTML",
+    "category": "Other",
+    "desc": "Eksperimen tanpa pustaka versi 2.",
+    "link": "projects/nolibrari-i2.html"
+  },
+  {
+    "name": "Not HTML",
+    "category": "Other",
+    "desc": "Halaman catatan atau notifikasi.",
+    "link": "projects/not.html"
+  },
+  {
+    "name": "Nyampah Premium Unified HTML",
+    "category": "Landing",
+    "desc": "Landing page premium terpadu NyampahBersama.",
+    "link": "projects/nyampah-premium-unified.html"
+  },
+  {
+    "name": "Nyampah Coin HTML",
+    "category": "Blockchain",
+    "desc": "Halaman informasi tentang NyampahCoin.",
+    "link": "projects/nyampahcoin.html"
+  },
+  {
+    "name": "Operamini Simulator",
+    "category": "AI",
+    "desc": "Simulator mini untuk perangkat atau aplikasi.",
+    "link": "projects/operamini_simulator.html"
+  },
+  {
+    "name": "Platform 1 HTML",
+    "category": "Landing",
+    "desc": "Desain platform atau dashboard versi 1.",
+    "link": "projects/platform1.html"
+  },
+  {
+    "name": "PoAV V1 HTML",
+    "category": "Blockchain",
+    "desc": "Halaman tentang Proof of Authority V1.",
+    "link": "projects/PoAV_v1.html"
+  },
+  {
+    "name": "Posting Konten HTML",
+    "category": "Blog",
+    "desc": "Antarmuka untuk membuat atau memposting konten.",
+    "link": "projects/posting_konten.html"
+  },
+  {
+    "name": "Power Up HTML",
+    "category": "Other",
+    "desc": "Halaman untuk fitur 'power-up' atau peningkatan.",
+    "link": "projects/power_up.html"
+  },
+  {
+    "name": "Power Up SOL",
+    "category": "Smart Contract",
+    "desc": "Smart contract untuk fitur power-up.",
+    "link": "projects/power_up.sol"
+  },
+  {
+    "name": "Principle HTML",
+    "category": "Other",
+    "desc": "Halaman tentang prinsip atau etika.",
+    "link": "projects/principle.html"
+  },
+  {
+    "name": "Prot HTML",
+    "category": "Other",
+    "desc": "Deskripsi sementara: Halaman Prot.",
+    "link": "projects/prot.html"
+  },
+  {
+    "name": "Pubm HTML",
+    "category": "Other",
+    "desc": "Deskripsi sementara: Halaman Pubm.",
+    "link": "projects/pubm.html"
+  },
+  {
+    "name": "Qlimat HTML",
+    "category": "Environmental",
+    "desc": "Halaman terkait informasi iklim.",
+    "link": "projects/qlimat.html"
+  },
+  {
+    "name": "Qlimatq Kalkulator HTML",
+    "category": "Environmental",
+    "desc": "Kalkulator untuk dampak iklim.",
+    "link": "projects/qlimatq_kalkulator.html"
+  },
+  {
+    "name": "Retro Operamini HTML",
+    "category": "UI/UX",
+    "desc": "Desain antarmuka retro ala Opera Mini.",
+    "link": "projects/retro_operamini.html"
+  },
+  {
+    "name": "Riset HTML",
+    "category": "Blog",
+    "desc": "Halaman untuk hasil riset atau penelitian.",
+    "link": "projects/riset.html"
+  },
+  {
+    "name": "Script JS",
+    "category": "Other",
+    "desc": "File JavaScript umum.",
+    "link": "projects/script.js"
+  },
+  {
+    "name": "Untitled 2 TXT",
+    "category": "Other",
+    "desc": "File teks tanpa judul 2.",
+    "link": "projects/Untitled_2.txt"
+  },
+  {
+    "name": "Untitled 3 TXT",
+    "category": "Other",
+    "desc": "File teks tanpa judul 3.",
+    "link": "projects/Untitled_3.txt"
+  },
+  {
+    "name": "Untitled TXT",
+    "category": "Other",
+    "desc": "File teks tanpa judul.",
+    "link": "projects/Untitled.txt"
+  },
+  {
+    "name": "Viewer HTML",
+    "category": "UI/UX",
+    "desc": "Antarmuka penampil dokumen atau media.",
+    "link": "projects/viewer.html"
+  }
+]
