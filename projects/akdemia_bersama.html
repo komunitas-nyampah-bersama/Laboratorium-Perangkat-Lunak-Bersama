@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyampah Akademi - Sistem Pendidikan Lingkungan Berstandar Global</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --secondary: #ff9800;
+            --secondary-dark: #f57c00;
+            --accent: #2196f3;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --european-blue: #004494;
+            --european-yellow: #ffcc00;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover, nav a.active {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1522071901873-411886a10004?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-eu {
+            background: var(--european-blue);
+            margin-left: 15px;
+        }
+        
+        .btn-eu:hover {
+            background: #003376;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+        }
+        
+        .card-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-body ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .card-body ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-body ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .card-body ul li i {
+            color: var(--primary);
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        .eu-integration {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-top: 3px solid var(--european-blue);
+            border-bottom: 3px solid var(--european-yellow);
+        }
+        
+        .eu-container {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .eu-logo {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .eu-logo img {
+            max-width: 200px;
+        }
+        
+        .eu-content {
+            flex: 2;
+        }
+        
+        .funding-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .funding-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--european-blue);
+            position: relative;
+        }
+        
+        .funding-card.ka120 {
+            border-top-color: var(--european-yellow);
+        }
+        
+        .funding-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--european-blue);
+        }
+        
+        .funding-card.ka120 h3 {
+            color: var(--european-yellow);
+        }
+        
+        .funding-card ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .funding-card ul li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .funding-card ul li i {
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        .funding-card .status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .status.pending {
+            background: #ffeeba;
+            color: #856404;
+        }
+        
+        .status.approved {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .timeline-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+        
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--secondary);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            width: calc(50% - 40px);
+            padding: 20px;
+            background: white;
+            color: var(--dark);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content .date {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+        
+        .timeline-content ul li {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-content ul li i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .metric-card h3 {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+        
+        .metric-change {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .positive {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            padding: 8px 0;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 992px) {
+            .timeline-container:before {
+                left: 30px;
+            }
+            
+            .timeline-item, .timeline-item:nth-child(even) {
+                flex-direction: row;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .eu-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-recycle fa-2x"></i>
+                <h1>Nyampah Akademi</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Beranda</a></li>
+                    <li><a href="#">Program</a></li>
+                    <li><a href="#">Kurikulum</a></li>
+                    <li><a href="#">EU Funding</a></li>
+                    <li><a href="#">Sertifikasi</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>Transformasi Sampah Menjadi Kemandirian Ekonomi</h2>
+            <p>Platform pendidikan lingkungan berstandar global pertama di Indonesia, terintegrasi dengan standar Uni Eropa untuk ekonomi sirkular dan pengelolaan sampah berkelanjutan</p>
+            <div class="hero-buttons">
+                <a href="#programs" class="btn">Mulai Program</a>
+                <a href="#eu-integration" class="btn btn-eu">Dukungan EU <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Program Akademi</h2>
+            </div>
+            <div class="programs-grid">
+                <!-- Program 1 -->
+                <div class="program-card">
+                    <div class="card-header">
+                        <h3>PRG-001-1</h3>
+                        <p>Edukasi Pilah Sampah dari Rumah</p>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Mengenal Sampah dan Macam-macamnya</li>
+                            <li><i class="fas fa-check-circle"></i> Bahaya Sampah B3 dan Penanganannya</li>
+                            <li><i class="fas fa-check-circle"></i> Mindset Pilah dalam Kehidupan Sehari-hari</li>
+                            <li><i class="fas fa-check-circle"></i> Praktik Daur Ulang Kreatif</li>
+                            <li><i class="fas fa-check-circle"></i> Ekonomi Sirkular dari Sampah</li>
+                        </ul>
+                        <div class="reward">
+                            <p><strong>Reward:</strong> Sertifikasi, Lencana Digital Level 1</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Program 2 -->
+                <div class="program-card">
+                    <div class="card-header">
+                        <h3>PRG-001-2</h3>
+                        <p>Edukasi Ekonomi Sampah</p>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Sampahku, Tabunganku</li>
+                            <li><i class="fas fa-check-circle"></i> Sampah sebagai Aset Bernilai</li>
+                            <li><i class="fas fa-check-circle"></i> Skema Reward dan Insentif</li>
+                            <li><i class="fas fa-check-circle"></i> Keuangan Dasar Ekonomi Sirkular</li>
+                            <li><i class="fas fa-check-circle"></i> Tren Pasar Daur Ulang Global</li>
+                        </ul>
+                        <div class="reward">
+                            <p><strong>Reward:</strong> Simulasi Tabungan, Target Rp1000/hari</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Program 3 -->
+                <div class="program-card">
+                    <div class="card-header">
+                        <h3>PRG-001-3</h3>
+                        <p>Edukasi Digitalisasi Sampah</p>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Konsep Tokenisasi Aktivitas Lingkungan</li>
+                            <li><i class="fas fa-check-circle"></i> Sampah Digital, Cuan Rakyat</li>
+                            <li><i class="fas fa-check-circle"></i> AI dan Pengelolaan Sampah Modern</li>
+                            <li><i class="fas fa-check-circle"></i> Pengenalan Wallet Rakyat</li>
+                            <li><i class="fas fa-check-circle"></i> Dasar-dasar Teknologi Blockchain</li>
+                        </ul>
+                        <div class="reward">
+                            <p><strong>Reward:</strong> Sertifikasi Literasi Digital</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Program 4 -->
+                <div class="program-card">
+                    <div class="card-header">
+                        <h3>PRG-001-4</h3>
+                        <p>Energi Terbarukan & Pemanfaatan Sampah</p>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Konversi Sampah menjadi Energi</li>
+                            <li><i class="fas fa-check-circle"></i> Budidaya Maggot Skala Rumahan</li>
+                            <li><i class="fas fa-check-circle"></i> Teknologi Bioreaktor Sederhana</li>
+                            <li><i class="fas fa-check-circle"></i> Proyek Mini Pengolahan Sampah</li>
+                            <li><i class="fas fa-check-circle"></i> Skema Investasi Hijau</li>
+                        </ul>
+                        <div class="reward">
+                            <p><strong>Reward:</strong> Sertifikat Energi Hijau</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="eu-integration" class="section eu-integration">
+        <div class="container">
+            <div class="section-title">
+                <h2>Integrasi dengan Standar Uni Eropa</h2>
+            </div>
+            
+            <div class="eu-container">
+                <div class="eu-logo">
+                    <i class="fas fa-star fa-3x" style="color: var(--european-yellow);"></i>
+                    <i class="fas fa-star fa-3x" style="color: var(--european-yellow); margin: 0 10px;"></i>
+                    <i class="fas fa-star fa-3x" style="color: var(--european-yellow);"></i>
+                    <p style="margin-top: 20px; font-weight: 600; color: var(--european-blue);">DIDUKUNG PENUH OLEH UNI EROPA</p>
+                </div>
+                
+                <div class="eu-content">
+                    <h3>Pendanaan Strategis EU</h3>
+                    <p>Nyampah Akademi mendapatkan dukungan penuh dari Uni Eropa melalui program pendanaan khusus untuk pengembangan kapasitas dan akreditasi pendidikan lingkungan.</p>
+                    
+                    <div class="funding-cards">
+                        <!-- ESC50-QLA Card -->
+                        <div class="funding-card">
+                            <span class="status approved">Disetujui</span>
+                            <h3>ESC50-QLA</h3>
+                            <p><strong>Label Kualitas Terdesentralisasi</strong></p>
+                            <ul>
+                                <li><i class="far fa-calendar-check"></i> <strong>Deadline:</strong> 31 Oktober 2025</li>
+                                <li><i class="fas fa-euro-sign"></i> <strong>Pendanaan:</strong> €100,000</li>
+                                <li><i class="fas fa-check-circle"></i> Cocok untuk pengembangan kapasitas organisasi</li>
+                                <li><i class="fas fa-check-circle"></i> Fokus pada sistem blockchain terdesentralisasi</li>
+                                <li><i class="fas fa-check-circle"></i> Pengembangan DAO untuk keputusan komunitas</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- KA120-VET Card -->
+                        <div class="funding-card ka120">
+                            <span class="status pending">Proses</span>
+                            <h3>KA120-VET</h3>
+                            <p><strong>Akreditasi Pendidikan Kejuruan</strong></p>
+                            <ul>
+                                <li><i class="far fa-calendar-check"></i> <strong>Deadline:</strong> 1 Oktober 2025</li>
+                                <li><i class="fas fa-check-circle"></i> Akses mudah ke pendanaan mobilitas pemuda</li>
+                                <li><i class="fas fa-check-circle"></i> Skema pendanaan jangka panjang</li>
+                                <li><i class="fas fa-check-circle"></i> Sertifikasi berbasis ECVET (EU)</li>
+                                <li><i class="fas fa-check-circle"></i> Pertukaran pelajar ke negara-negara EU</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section timeline-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Roadmap Implementasi</h2>
+            </div>
+            
+            <div class="timeline-container">
+                <!-- Phase 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">Okt 2024 - Jan 2025</span>
+                        <h3>Fase Persiapan</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Pengembangan prototype DAO</li>
+                            <li><i class="fas fa-check"></i> Penyusunan kurikulum berbasis ECVET</li>
+                            <li><i class="fas fa-check"></i> Pelatihan fasilitator lokal</li>
+                            <li><i class="fas fa-check"></i> Pengintegrasian sistem SROI</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Phase 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">Feb - Sep 2025</span>
+                        <h3>Aplikasi Pendanaan</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Submit proposal KA120-VET (1 Okt 2025)</li>
+                            <li><i class="fas fa-check"></i> Submit proposal ESC50-QLA (31 Okt 2025)</li>
+                            <li><i class="fas fa-check"></i> MoU dengan mitra VET Eropa</li>
+                            <li><i class="fas fa-check"></i> Implementasi pilot project di 10 desa</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Phase 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">Okt 2025 - 2026</span>
+                        <h3>Implementasi & Publikasi</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Peluncuran resmi akademi global</li>
+                            <li><i class="fas fa-check"></i> Publikasi jurnal ilmiah internasional</li>
+                            <li><i class="fas fa-check"></i> Pertukaran pelajar pertama ke EU</li>
+                            <li><i class="fas fa-check"></i> Ekspansi ke 100 desa di Indonesia</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dashboard Impact Tracking</h2>
+            </div>
+            
+            <div class="dashboard">
+                <div class="metric-card">
+                    <h3>Peserta Terdaftar</h3>
+                    <div class="metric-value">5,247</div>
+                    <div class="metric-change positive">+32%</div>
+                    <p>Target 2025: 10,000 peserta</p>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Pengurangan Sampah</h3>
+                    <div class="metric-value">842 ton</div>
+                    <div class="metric-change positive">+45%</div>
+                    <p>Target 2025: 1,500 ton</p>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Dampak Ekonomi</h3>
+                    <div class="metric-value">Rp 3.2M</div>
+                    <div class="metric-change positive">+28%</div>
+                    <p>Target 2025: Rp 10 miliar</p>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Desa Mitra</h3>
+                    <div class="metric-value">127</div>
+                    <div class="metric-change positive">+21%</div>
+                    <p>Target 2025: 500 desa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Nyampah Akademi</h3>
+                    <p>Platform pendidikan lingkungan berstandar global yang mentransformasi sampah menjadi kemandirian ekonomi melalui kurikulum terstruktur, sertifikasi kompeten, dan ekosistem reward berkelanjutan.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Program</h3>
+                    <ul>
+                        <li><a href="#">Edukasi Pilah Sampah</a></li>
+                        <li><a href="#">Ekonomi Sirkular</a></li>
+                        <li><a href="#">Digitalisasi Sampah</a></li>
+                        <li><a href="#">Energi Terbarukan</a></li>
+                        <li><a href="#">Sertifikasi EU</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Dukungan EU</h3>
+                    <ul>
+                        <li><a href="#">ESC50-QLA</a></li>
+                        <li><a href="#">KA120-VET</a></li>
+                        <li><a href="#">ECVET Certification</a></li>
+                        <li><a href="#">Erasmus+ Mobility</a></li>
+                        <li><a href="#">EU Green Deal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontak Kami</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Lingkungan Hijau No. 27, Jakarta</li>
+                        <li><i class="fas fa-phone"></i> +62 21 888 7777</li>
+                        <li><i class="fas fa-envelope"></i> info@nyampahakademi.id</li>
+                        <li><i class="fab fa-whatsapp"></i> +62 812 3456 7890</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Nyampah Akademi. Hak Cipta Dilindungi. | Didukung oleh Uni Eropa</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Simple animation for metric cards
+        const metricCards = document.querySelectorAll('.metric-card');
+        metricCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Simulate changing metrics
+        function updateMetrics() {
+            const metrics = document.querySelectorAll('.metric-value');
+            metrics.forEach(metric => {
+                const currentValue = parseInt(metric.textContent.replace(/[^\d]/g, ''));
+                const newValue = currentValue + Math.floor(Math.random() * 50);
+                metric.textContent = newValue.toLocaleString();
+            });
+        }
+        
+        // Update metrics every 5 seconds
+        setInterval(updateMetrics, 5000);
+    </script>
+</body>
+</html>

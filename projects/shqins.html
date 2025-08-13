@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyampah Bersama - Personal DApp</title>
+    <style>
+        /* ... (CSS yang sama dari contoh sebelumnya) ... */
+        .web3-status { margin-top: 10px; padding: 10px; background-color: #e0f7fa; border: 1px solid #00bcd4; border-radius: 5px; }
+        .web3-button { background-color: #00bcd4; color: white; border: none; padding: 10px 15px; margin: 5px; border-radius: 5px; cursor: pointer; font-size: 1em; }
+        .web3-button:hover { background-color: #00838f; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Nyampah Bersama - Personal DApp</h1>
+            <p>Aplikasi desentralisasi pribadi Anda untuk berkontribusi pada lingkungan dan mendapatkan reward.</p>
+            <div id="web3-status" class="web3-status">Hubungkan dompet Anda.</div>
+            <div class="nav-buttons">
+                <button onclick="showSection('home')">Home</button>
+                <button onclick="showSection('contribute')">Kontribusi Aksi</button>
+                <button onclick="showSection('my-nfts')">NFT Saya</button>
+                <button onclick="connectWallet()">Hubungkan Dompet</button>
+            </div>
+        </div>
+
+        <div id="home" class="content-section active">
+            <p>Selamat datang di DApp pribadi Nyampah Bersama. Lakukan aksi nyata, rekam, dan dapatkan NFT serta token!</p>
+            <p>Aplikasi ini berinteraksi langsung dengan blockchain dari browser Anda.</p>
+            <p>
+                <a href="https://ipfs.io/" target="_blank">Pelajari tentang IPFS</a> |
+                <a href="https://metamask.io/" target="_blank">Dapatkan MetaMask</a>
+            </p>
+        </div>
+
+        <div id="contribute" class="content-section">
+            <div class="feature-box">
+                <h3>Rekam Aksi Bersih Anda (PoCA)</h3>
+                <p>Unggah bukti pemilahan sampah atau aksi lingkungan lainnya.</p>
+                <input type="file" id="proofFile" accept="image/*,video/*" capture="environment">
+                <input type="text" id="actionDesc" placeholder="Deskripsi Aksi (misal: 1kg sampah organik)">
+                <button class="web3-button" onclick="submitProofOfCleanAct()">Kirim Bukti Aksi (Mint PoCA NFT)</button>
+                <p id="proofStatus" style="margin-top: 10px;"></p>
+            </div>
+        </div>
+
+        <div id="my-nfts" class="content-section">
+            <div class="feature-box">
+                <h3>NFT Aksi Bersih Saya</h3>
+                <p>Lihat sertifikat NFT dari kontribusi Anda.</p>
+                <div id="nft-display"></div>
+                <button class="web3-button" onclick="loadUserNFTs()">Muat NFT Saya</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module">
+        // Import Web3.js atau Ethers.js
+        // Pastikan Anda sudah menginstal ini (misal via CDN atau build process)
+        // Untuk demo sederhana, kita bisa menggunakan window.ethereum yang disuntikkan MetaMask
+        // Contoh: import { ethers } from "https://cdn.ethers.io/lib/ethers-5.2.esm.min.js";
+        // atau jika pakai Web3.js: import Web3 from "https://cdn.jsdelivr.net/npm/web3@1.7.0/dist/web3.min.js";
+
+        // Global variables for Web3
+        let provider;
+        let signer;
+        let userAddress;
+        const web3Status = document.getElementById('web3-status');
+        const pocContractAddress = "0xYourPoCAContractAddress"; // GANTI DENGAN ALAMAT SMART CONTRACT ANDA
+        const pocContractABI = []; // GANTI DENGAN ABI SMART CONTRACT ANDA
+        const nyampahCoinContractAddress = "0xYourNyampahCoinContractAddress"; // GANTI
+        const nyampahCoinContractABI = []; // GANTI
+
+        function showSection(id) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+        }
+
+        // --- Web3 Interactions ---
+
+        async function connectWallet() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    userAddress = accounts[0];
+                    provider = new ethers.providers.Web3Provider(window.ethereum);
+                    signer = provider.getSigner();
+                    web3Status.textContent = `Terhubung: ${userAddress.substring(0, 6)}...${userAddress.substring(userAddress.length - 4)}`;
+                    console.log("Dompet terhubung:", userAddress);
+
+                    // Add event listener for account changes
+                    window.ethereum.on('accountsChanged', (newAccounts) => {
+                        userAddress = newAccounts[0];
+                        web3Status.textContent = `Terhubung: ${userAddress.substring(0, 6)}...${userAddress.substring(userAddress.length - 4)}`;
+                        console.log("Akun berubah:", userAddress);
+                        // Anda mungkin ingin memuat ulang NFT atau data lain setelah akun berubah
+                        loadUserNFTs();
+                    });
+
+                    // Add event listener for network changes
+                    window.ethereum.on('chainChanged', (chainId) => {
+                        console.log("Jaringan berubah ke:", chainId);
+                        web3Status.textContent = `Terhubung (Jaringan berubah): ${userAddress.substring(0, 6)}...`;
+                        // Anda mungkin perlu me-refresh halaman atau me-reinitialize provider/signer
+                    });
+
+                } catch (error) {
+                    console.error("Gagal terhubung ke dompet:", error);
+                    web3Status.textContent = "Gagal terhubung ke dompet.";
+                }
+            } else {
+                web3Status.textContent = "MetaMask tidak ditemukan. Silakan instal MetaMask.";
+                alert("MetaMask atau dompet Web3 lainnya tidak ditemukan. Silakan instal ekstensi browser seperti MetaMask untuk menggunakan DApp ini.");
+            }
+        }
+
+        // Fungsi untuk mengunggah file ke IPFS (memerlukan layanan gateway IPFS atau API)
+        // Ini adalah SANGAT KRITIS. Mengunggah langsung dari file:// ke IPFS API mungkin diblokir oleh CORS.
+        // Anda mungkin perlu menggunakan layanan seperti Web3.Storage (memerlukan API token)
+        async function uploadToIPFS(file) {
+            console.log("Mengunggah file ke IPFS...");
+            // Contoh menggunakan Web3.Storage (memerlukan instalasi 'web3.storage' dan API Token)
+            // Ini biasanya dilakukan di Node.js atau environment yang mendukung fetch API ke URL lain
+            // Jika ini file HTML lokal, Anda akan menghadapi masalah CORS.
+            // Solusi: Gunakan service seperti Pinata / Web3.Storage API, dan pastikan server mereka
+            // mengizinkan CORS dari file:// origin, atau gunakan service worker / proxy.
+            // Untuk demo ini, kita akan simulasi atau asumsikan file diunggah manual.
+            
+            // --- SIMULASI UPLOAD IPFS ---
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    const dummyCid = `Qm${Math.random().toString(36).substring(2, 15)}${Math.random().toString(36).substring(2, 15)}`;
+                    console.log(`Simulasi: File diunggah ke IPFS dengan CID: ${dummyCid}`);
+                    resolve(dummyCid);
+                }, 1500);
+            });
+            // --- END SIMULASI ---
+        }
+
+        async function submitProofOfCleanAct() {
+            if (!userAddress) {
+                alert("Silakan hubungkan dompet Anda terlebih dahulu.");
+                return;
+            }
+
+            const fileInput = document.getElementById('proofFile');
+            const actionDesc = document.getElementById('actionDesc').value;
+            const proofStatus = document.getElementById('proofStatus');
+
+            if (!fileInput.files.length || !actionDesc) {
+                proofStatus.textContent = "Mohon pilih file bukti dan isi deskripsi aksi.";
+                proofStatus.style.color = 'red';
+                return;
+            }
+
+            proofStatus.textContent = "Mengunggah bukti ke IPFS dan memproses transaksi...";
+            proofStatus.style.color = 'orange';
+
+            try {
+                // Langkah 1: Unggah file bukti ke IPFS
+                const ipfsCid = await uploadToIPFS(fileInput.files[0]);
+                if (!ipfsCid) {
+                    throw new Error("Gagal mengunggah ke IPFS.");
+                }
+
+                // Langkah 2: Buat metadata NFT (sesuai ERC-721 JSON Schema)
+                const nftMetadata = {
+                    name: `PoCA: ${actionDesc}`,
+                    description: `Bukti Aksi Bersih untuk Komunitas Nyampah Bersama. CID: ${ipfsCid}`,
+                    image: `https://ipfs.io/ipfs/${ipfsCid}`, // Atau link ke thumbnail/gambar bukti
+                    attributes: [
+                        { "trait_type": "Jenis Aksi", "value": "Pengelolaan Sampah Organik" },
+                        { "trait_type": "Tanggal", "value": new Date().toISOString().split('T')[0] },
+                        { "trait_type": "Konteks", "value": actionDesc }
+                    ]
+                };
+
+                // Unggah metadata ke IPFS juga (penting untuk NFT)
+                const metadataBlob = new Blob([JSON.stringify(nftMetadata)], { type: 'application/json' });
+                const metadataFile = new File([metadataBlob], 'metadata.json');
+                const metadataCid = await uploadToIPFS(metadataFile); // Ini akan menjadi IPFS URI untuk NFT
+
+                // Langkah 3: Panggil smart contract untuk mint NFT PoCA
+                const pocContract = new ethers.Contract(pocContractAddress, pocContractABI, signer);
+                const tx = await pocContract.mintPoCA(userAddress, `ipfs://${metadataCid}`);
+                await tx.wait();
+
+                proofStatus.textContent = `Aksi berhasil dicatat! NFT PoCA di-mint. Transaksi: ${tx.hash}`;
+                proofStatus.style.color = 'green';
+                console.log("Transaksi PoCA NFT:", tx);
+
+                // Opsional: Distribusikan NyampahCoin (jika PoCAContract memicunya atau ada contract terpisah)
+                // const nyampahCoinContract = new ethers.Contract(nyampahCoinContractAddress, nyampahCoinContractABI, signer);
+                // const rewardTx = await nyampahCoinContract.distributeReward(userAddress, amount);
+                // await rewardTx.wait();
+
+            } catch (error) {
+                proofStatus.textContent = `Gagal mencatat aksi: ${error.message}`;
+                proofStatus.style.color = 'red';
+                console.error("Error submitProofOfCleanAct:", error);
+            }
+        }
+
+        async function loadUserNFTs() {
+            if (!userAddress) {
+                alert("Silakan hubungkan dompet Anda terlebih dahulu.");
+                return;
+            }
+            const nftDisplay = document.getElementById('nft-display');
+            nftDisplay.innerHTML = '<p>Memuat NFT Anda...</p>';
+
+            try {
+                const pocContract = new ethers.Contract(pocContractAddress, pocContractABI, provider);
+                const balance = await pocContract.balanceOf(userAddress);
+                let nftsHtml = `<h4>Total NFT PoCA: ${balance.toString()}</h4>`;
+                
+                if (balance.toNumber() === 0) {
+                    nftsHtml += '<p>Anda belum memiliki NFT PoCA.</p>';
+                } else {
+                    nftsHtml += '<div style="display: flex; flex-wrap: wrap; gap: 15px;">';
+                    for (let i = 0; i < balance.toNumber(); i++) {
+                        const tokenId = await pocContract.tokenOfOwnerByIndex(userAddress, i);
+                        const tokenURI = await pocContract.tokenURI(tokenId);
+                        
+                        // Fetch metadata from IPFS gateway
+                        let metadataUrl = tokenURI.replace('ipfs://', 'https://ipfs.io/ipfs/'); // Ganti dengan gateway IPFS favorit Anda
+                        const response = await fetch(metadataUrl);
+                        const metadata = await response.json();
+
+                        nftsHtml += `
+                            <div style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; width: 200px; text-align: center;">
+                                <img src="${metadata.image.replace('ipfs://', 'https://ipfs.io/ipfs/')}" alt="${metadata.name}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 3px;">
+                                <h5>${metadata.name}</h5>
+                                <p style="font-size: 0.8em;">ID: ${tokenId.toString()}</p>
+                                <a href="${metadataUrl}" target="_blank" style="font-size: 0.8em;">Lihat Metadata</a>
+                            </div>
+                        `;
+                    }
+                    nftsHtml += '</div>';
+                }
+                nftDisplay.innerHTML = nftsHtml;
+
+            } catch (error) {
+                nftDisplay.innerHTML = `<p style="color: red;">Gagal memuat NFT: ${error.message}</p>`;
+                console.error("Error loadUserNFTs:", error);
+            }
+        }
+
+        // Auto-connect wallet if MetaMask is already connected (optional, for better UX)
+        // document.addEventListener('DOMContentLoaded', async () => {
+        //     if (typeof window.ethereum !== 'undefined') {
+        //         const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+        //         if (accounts.length > 0) {
+        //             await connectWallet();
+        //             loadUserNFTs();
+        //         }
+        //     }
+        // });
+
+    </script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.esm.min.js" type="module"></script>
+</body>
+</html>
